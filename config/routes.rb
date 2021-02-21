@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :items, except:[:destroy]
-    resources :users, except:[:new, :create, :destroy]
+    resources :users, except:[:new, :create, :show, :destroy]
   end
 
 end
