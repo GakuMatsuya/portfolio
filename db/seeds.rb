@@ -10,3 +10,14 @@ Admin.create!(
   email: "hoge-hoge@hoge.com", 
   password: "111111"
 )
+
+#商品に持たせるジャンル情報を、配列でまとめて作成
+Genre.create!(
+  [
+    {name: "BEER"},
+    {name: "WHISKY/WHISKEY"},
+    {name: "WINE"},
+    {name: "SAKE"},
+    {name: "LIQUEUR"}
+  ]
+)
