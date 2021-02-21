@@ -21,3 +21,11 @@ Genre.create!(
     {name: "LIQUEUR"}
   ]
 )
+
+#管理者側の動作確認のため、テストユーザを作成。ユーザー登録機能実装後に削除
+User.create!(
+  email: "fuka510830@gmail.com",
+  name: "ふーか",
+  password: "19970616",
+  introduction: "よろしくお願いします"
+  )
