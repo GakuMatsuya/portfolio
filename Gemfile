@@ -67,5 +67,6 @@ gem "pry-byebug"
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem "pry-rails"
-gem 'bootstrap', '~> 4.5'
-gem 'jquery-rails'
+gem "bootstrap", "~> 4.5"
+gem "jquery-rails"
+gem "enum_help"
