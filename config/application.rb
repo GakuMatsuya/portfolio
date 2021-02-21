@@ -11,7 +11,7 @@ module DORIBA
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     
-    #デフォルト言語を日本語に
+    #デフォルト言語を日本語に設定
     config.i18n.default_locale = :ja
 
     # Settings in config/environments/* take precedence over those specified here.
