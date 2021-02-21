@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_02_21_021612) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.text "introducton"
+    t.text "introduction"
     t.string "profile_image_id"
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
