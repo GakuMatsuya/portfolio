@@ -17,12 +17,12 @@ class Public::Sessions::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
-  
+
   #ログイン後、マイページに遷移
   def after_sign_in_path_for(resource)
-    user_path(resource.id)
+    user_path(resource)
   end
-  
+
   #ログアウト後、ログインページへ
   def after_sign_out_path_for(resource)
     new_user_session_path
