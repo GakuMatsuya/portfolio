@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   
   #urlを設定
   devise_for :users, path: '', controllers: {
-    sessions: "public/sessions/sessions"
+    sessions: "public/sessions/sessions",
+    registrations: "public/sessions/registrations"
   }
   
   devise_for :admin, controllers: {
