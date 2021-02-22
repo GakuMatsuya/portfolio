@@ -9,7 +9,7 @@ class Public::Sessions::RegistrationsController < Devise::RegistrationsControlle
   #   super
   # end
 
-  # POST /resource
+  # POST /resourcegit
   # def create
   #   super
   # end
