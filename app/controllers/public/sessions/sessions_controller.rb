@@ -17,6 +17,11 @@ class Public::Sessions::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+  
+  #ログイン後、マイページに遷移
+  def after_sign_in_path_for(resource)
+    user_path(resource.id)
+  end
 
   # protected
 
