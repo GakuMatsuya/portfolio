@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     sessions: "admin/sessions/sessions"
   }
   
+  get "/" => "public/homes#top"
+  
   #urlにadminをつけることで、ユーザー側と区別
   namespace :admin do
     resources :items, except:[:destroy]
