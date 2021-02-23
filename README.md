@@ -32,3 +32,11 @@ https://docs.google.com/spreadsheets/d/1VTCkJRCrAKke4lXofBw9e-MHoFKCk6oYUf5gB103
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - 仮想環境：Vagrant,VirtualBox
+
+## 使用素材
+- O-DAN
+ - https://o-dan.net/ja/
+- morguefile
+ - https://morguefile.com/
+- ICOON MONO
+ - https://icooon-mono.com/
