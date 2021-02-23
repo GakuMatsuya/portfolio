@@ -1,1 +1,29 @@
-f
+<div class="container">
+  <%#rowの幅を指定することで、値が変わってもレイアウトが崩れない%>
+  <div class="row-12 mt-4">
+    <div class="row">
+      <div class="col-8" style="line-height:2rem">
+        <%= attachment_image_tag @user, :profile_image, format: "jpeg", size: "60x60", fallback: "no_image.jpg" %>
+        <%= @user.name %> </br>
+        <%= @user.introduction %>
+      </div>
+      <div class="col-3 offset-1 mt-5">
+        <%= link_to "プロフィールを編集", edit_user_path(@user) %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mt-4">
+    <div class="row">
+      <div class="col-3">
+        Followers
+      </div>
+      <div class="col-3">
+        Following
+      </div>
+      <div class="col-6">
+        いいねした投稿
+      </div>
+    </div>
+  </div>
+</div>
