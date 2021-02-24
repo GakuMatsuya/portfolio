@@ -13,14 +13,14 @@ class User < ApplicationRecord
    }
   
   #フォローしている人を取得するための記述
-  has_many :relationships
+  has_many :relationships, dependent: :destroy
   
   #followingsクラスを仮で指定。relationshipテーブルのfollow_idから、フォローしている人たちを取得
   has_many :followings, through: :relationships, source: :follow
   
   #フォロワーを取得する記述
   #reverse_of_relationshipsというクラスを仮で指定。relationsipテーブルのfollow_idを基に、アクセス
-  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "follow_id"
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy
 
   #先ほど指定したreberse_of_relationshipsを中間テーブルとし、フォロワーのuser_idを取得する
   has_many :followers, through: :reverse_of_relationships, source: :user
