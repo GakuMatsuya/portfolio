@@ -9,11 +9,13 @@
         <%= @user.introduction %>
       </div>
       
-      <% if @user.id == current_user.id %>
-        <div class="col-3 offset-1 mt-5">
+      <div class="col-3 offset-1 mt-5">
+        <% if @user.id == current_user.id %>
           <%= link_to "プロフィールを編集", edit_user_path(@user) %>
-        </div>
-      <% end %>
+        <% else %>
+          <%= render "public/relationships/follow_button", user: @user %>
+        <% end %>  
+      </div>
     </div>
   </div>
   
@@ -27,7 +29,6 @@
       </div>
       <div class="col-6">
         いいねした投稿
-         <%= render "public/relationships/follow_button", user: @user %>
       </div>
     </div>
   </div>
