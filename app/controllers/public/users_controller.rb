@@ -1,4 +1,5 @@
 class Public::UsersController < ApplicationController
+  before_action :authenticate_user!
 
   def show
     @user = User.find(params[:id])
@@ -6,6 +7,7 @@ class Public::UsersController < ApplicationController
     #currnt_userと@userのリレーションシップを取得
     @relationship = current_user.relationships.find_by(follow_id: @user.id)
     @set_relationship = current_user.relationships.new
+  
   end
 
   def edit
