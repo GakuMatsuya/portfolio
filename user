@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/ec2-user/environment/DORIBA/app/views/public/users/followings.html.erb:17 ActionView::CompiledTemplates#_app_views_public_users_followings_html_erb__2103832416919549044_70302608705640:
+
+    [1;34m12[0m:       </tr>
+    [1;34m13[0m:     </thead>
+    [1;34m14[0m: 
+    [1;34m15[0m:     <tbody>
+    [1;34m16[0m:       <% binding.pry %>
+ => [1;34m17[0m:       <% @users.each do |user| %>
+    [1;34m18[0m:       <tr>
+    [1;34m19[0m:         <td width="10%">
+    [1;34m20[0m:           <%= link_to user_path(user) do %>
+    [1;34m21[0m:             <%= attachment_image_tag user, :profile_image, format: "jpeg", size: "60x60", fallback: "no_image.jpg" %>
+    [1;34m22[0m:           <% end %>
+
