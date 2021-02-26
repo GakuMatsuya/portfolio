@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       except:[:create, :new, :destroy]
     end
     
+    resources :items, only: [:index, :show]
     resources :relationships, only: [:create, :destroy]
   end
 
