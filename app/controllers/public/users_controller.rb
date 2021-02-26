@@ -25,9 +25,13 @@ class Public::UsersController < ApplicationController
   end
 
   def following
+    @user = User.find(params[:id])
+    @users = @user.followings.all
   end
 
   def followers
+    @user = User.find(params[:id])
+    @users = @user.followers.all
   end
 
   def unsubscribe
