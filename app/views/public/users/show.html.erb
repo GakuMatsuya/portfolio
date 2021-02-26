@@ -22,10 +22,10 @@
   <div class="row mt-4">
     <div class="row">
       <div class="col-3">
-        Followers
+        <%= link_to "フォロー: #{@user.followings.count}人", followings_user_path(@user.id) %>
       </div>
       <div class="col-3">
-        Following
+        <%= link_to "フォロワー: #{@user.followers.count}人", followers_user_path(@user.id) %>
       </div>
       <div class="col-6">
         いいねした投稿
