@@ -1,6 +1,8 @@
 class Public::ReviewsController < ApplicationController
   
   def new
+    @review = Review.new 
+    @user = current_user
   end
   
   def create
@@ -10,6 +12,7 @@ class Public::ReviewsController < ApplicationController
   end
   
   def show
+    @review = Review.find(params[:id])
   end
   
   def edit

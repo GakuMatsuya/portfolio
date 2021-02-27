@@ -1,1 +1,14 @@
-sinnkirebyu------
+<div class="container">
+  <div class="row">
+    <div class="mt-3 bg-light"><h5>新規レビュー</h5></div>
+  </div>
+
+  <%= form_with model: @review, url: user_path(@user), local:true do |f| %>
+  <div class="row mt-5 offset-3">
+    <%= f.text_area :introduction, size: "40x5" %>
+  </div>
+  <div class="row mt-5 offset-3">
+  <%= f.submit "投稿する", :class=>"btn text-white offset-2 btn-success" %>
+  </div>
+  <% end %>
+</div>
