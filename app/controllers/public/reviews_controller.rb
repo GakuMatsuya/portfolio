@@ -26,5 +26,11 @@ class Public::ReviewsController < ApplicationController
 
   def destroy
   end
+  
+  private
+  
+  def review_params
+    params.require(:review).permit(:rate, :text)
+  end
 
 end
