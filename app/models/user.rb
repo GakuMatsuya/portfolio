@@ -12,6 +12,7 @@ class User < ApplicationRecord
     withdrawn:            false    #退会済みユーザー
    }
   
+  has_many :reviews, dependent: :destroy
   #フォローしているユーザーとのアソシエーション
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
