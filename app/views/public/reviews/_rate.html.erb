@@ -1,13 +1,13 @@
- <script>
-    $("#star").raty({
-      size: 30,
-      starOff: "<%= asset_path('star-off.png') %>",
-      starOn: "<%= asset_path('star-on.png') %>",
-      starHalf: "<%= asset_path('star-half.png') %>",
-      scoreName: "review[rate]",
-      half: true,
-    });
-    </script>
+<%#id=starに対し、ratyを発火%>
+<script>
+  $("#star").raty({
+    starOff: "<%= asset_path('star-off.png') %>",
+    starOn: "<%= asset_path('star-on.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    scoreName: "review[rate]",
+    half: true,
+  });
+</script>
 
 
 
