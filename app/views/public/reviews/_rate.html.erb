@@ -5,8 +5,20 @@
     starOn: "<%= asset_path('star-on.png') %>",
     starHalf: "<%= asset_path('star-half.png') %>",
     scoreName: "review[rate]",
-    half: true,
+    half: true
   });
 </script>
 
-
+<%#class=average-review-ratingに対して発火。平均を%>
+<script>
+  $(".average-review-rating").raty({
+    readOnly: true,
+    starOff: "<%= asset_path('star-off.png') %>",
+    starOn: "<%= asset_path('star-on.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+     score: function() {
+      return $(this).attr('data-score');
+    },
+    half: true
+  });
+</script>

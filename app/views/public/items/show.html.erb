@@ -1,22 +1,29 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-2 offset-1">
-      <%= attachment_image_tag @item, :image, format: "jpeg", size: "100x120" %> <br>
+      <%= attachment_image_tag @item, :image, format: "jpeg", size: "200x220" %> <br>
       <%= link_to "投稿する", new_item_review_path(@item) %>
     </div>
 
     <div class="col-7 offset-2">
-      <div class=row>
+      <div class="row">
         <div class="col-2"><p>商品名</p></div>
         <div class="col-8"><%= @item.name %></div>
       </div>
-      <div class=row>
+      <div class="row">
         <div class="col-2"><p>商品説明</p></div>
         <div class="col-8"><%= @item.introduction %></div>
       </div>
-      <div class=row>
+      <div class="row">
         <div class="col-2"><p>ジャンル</p></div>
         <div class="col-8"><%= @item.genre.name %></div>
+      </div>
+      <div class="row">
+        <div class="col-2"><p>口コミ<%= @reviews.count %>件</p></div>
+        <div class="average-review-rating col-8" data-score="<%= @average_review %>">
+          <%= render 'public/reviews/rate' %>
+          <div style="color: yellow;"><%= @average_review %></div>
+        </div>
       </div>
     </div>
   </div>
@@ -27,7 +34,7 @@
         <%= attachment_image_tag review.user, :profile_image, format: "jpeg", size: "60x60", fallback: "no_image.jpg" %>
         <%= link_to review.user.name, user_path(review.user_id) %>
         <%= l review.updated_at %>
-        <div class="rate<%= review.id %>" data-score="<%= review.rate %>"></div>
+        <div class="rate<%= review.id %> mt-1" data-score="<%= review.rate %>"></div>
         <div class="mb-5 mt-1 col-9"><%= review.text %></div>
       <% end %>
     </div>
