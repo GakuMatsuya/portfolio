@@ -27,7 +27,7 @@
       <tr>
         <td><%= attachment_image_tag review.user, :profile_image, format: "jpeg", size: "60x60", fallback: "no_image.jpg" %></td>
         <td><%= link_to review.user.name, user_path(review.user_id) %></td>
-        <td><%= review.updated_at %></td>
+        <td><%= l review.updated_at %></td>
         <td><%= review.text %></td>
         <td class="rate" data-score="<%= review.rate %>"></td>
         <%= render 'public/reviews/rate' %>
