@@ -28,7 +28,7 @@
         <%= link_to review.user.name, user_path(review.user_id) %>
         <%= l review.updated_at %>
         <div class="rate<%= review.id %>" data-score="<%= review.rate %>"></div>
-        <div class="mb-5"><%= review.text %></div>
+        <div class="mb-5 mt-1 col-9"><%= review.text %></div>
       <% end %>
     </div>
   </div>
