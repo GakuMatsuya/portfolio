@@ -20,10 +20,9 @@ Rails.application.routes.draw do
   
   #ユーザー側のurlにはファイル階層の記述はしない
   scope module: :public do
-    resources :users do
+    resources :users, except:[:create, :new, :destroy] do
       get :followings, on: :member
-      get :followers, on: :member,
-      except:[:create, :new, :destroy]
+      get :followers, on: :member
     end
     resources :items, only: [:index, :show] do
       resources :reviews
