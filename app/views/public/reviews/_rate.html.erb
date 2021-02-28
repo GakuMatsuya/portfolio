@@ -1,4 +1,4 @@
-<%#id=starに対し、ratyを発火%>
+<%#id=starに対して発火。新規投稿で呼び出す%>
 <script>
   $("#star").raty({
     starOff: "<%= asset_path('star-off.png') %>",
@@ -9,7 +9,17 @@
   });
 </script>
 
-
-
+<%#class=rateに対して発火。投稿一覧で呼び出す%>
+<script>
+  $('.rate').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    starOff: "<%= asset_path('star-off.png') %>",
+    starOn: "<%= asset_path('star-on.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>"
+  });
+</script>
 
 

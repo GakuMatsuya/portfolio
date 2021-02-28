@@ -29,7 +29,8 @@
         <td><%= link_to review.user.name, user_path(review.user_id) %></td>
         <td><%= review.updated_at %></td>
         <td><%= review.text %></td>
-        <td><%= review.rate %></td>
+        <td class="rate" data-score="<%= review.rate %>"></td>
+        <%= render 'public/reviews/rate' %>
       </tr>
       <% end %>
     </tbody>
