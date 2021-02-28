@@ -1,6 +1,7 @@
 class Review < ApplicationRecord
 
   belongs_to :user
+  belongs_to :item
 
   #レートを1以上5以下に設定
   validates :rate, numericality: {
