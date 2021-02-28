@@ -22,7 +22,7 @@ class Public::UsersController < ApplicationController
   def index
   end
 
-  def following
+  def followings
     @user = User.find(params[:id])
     @users = @user.followings.all
   end
