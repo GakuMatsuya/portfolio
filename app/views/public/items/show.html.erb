@@ -4,7 +4,7 @@
       <%= attachment_image_tag @item, :image, format: "jpeg", size: "100x120" %> <br>
       <%= link_to "投稿する", new_item_review_path(@item) %>
     </div>
-    
+
     <div class="col-7 offset-2">
       <div class=row>
         <div class="col-2"><p>商品名</p></div>
@@ -20,19 +20,31 @@
       </div>
     </div>
   </div>
-    
-  <table class="table mt-3">
-    <tbody>
+
+  <div class="row mt-5">
+    <div class="offset-2">
       <% @reviews.each do |review| %>
-      <tr>
-        <td><%= attachment_image_tag review.user, :profile_image, format: "jpeg", size: "60x60", fallback: "no_image.jpg" %></td>
-        <td><%= link_to review.user.name, user_path(review.user_id) %></td>
-        <td><%= l review.updated_at %></td>
-        <td><%= review.text %></td>
-        <td class="rate" data-score="<%= review.rate %>"></td>
-        <%= render 'public/reviews/rate' %>
-      </tr>
+        <%= attachment_image_tag review.user, :profile_image, format: "jpeg", size: "60x60", fallback: "no_image.jpg" %>
+        <%= link_to review.user.name, user_path(review.user_id) %>
+        <%= l review.updated_at %>
+        <div class="rate<%= review.id %>" data-score="<%= review.rate %>"></div>
+        <div class="mb-5"><%= review.text %></div>
       <% end %>
-    </tbody>
-  </table>
+    </div>
+  </div>
 </div>
+
+<%#パーシャルで切り出したかったが、うまくいかなかったので後ほど%>
+<script>
+  <% @reviews.each do |review| %>
+  $(".rate<%= review.id %>").raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    starOff: "<%= asset_path('star-off.png') %>",
+    starOn: "<%= asset_path('star-on.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>"
+  });
+  <% end %>
+</script>
