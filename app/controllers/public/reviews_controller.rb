@@ -11,7 +11,7 @@ class Public::ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.item_id = @item.id
     @review.save
-    redirect_to item_review_path(@review.item_id, @review)
+    redirect_to item_path(@item)
   end
 
   def index
