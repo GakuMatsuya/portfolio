@@ -35,7 +35,11 @@
         <%= link_to review.user.name, user_path(review.user_id) %>
         <%= l review.updated_at %>
         <div class="rate<%= review.id %> mt-1" data-score="<%= review.rate %>"></div>
-        <div class="mb-5 mt-1 col-9"><%= review.text %></div>
+        <div class="mt-1 col-9"><%= review.text %></div>
+        <div class="mb-5 mt-2 offset-8">
+          いいね
+          <%= link_to "コメントを見る", item_review_path(@item, review) %>
+        </div>
       <% end %>
     </div>
   </div>
