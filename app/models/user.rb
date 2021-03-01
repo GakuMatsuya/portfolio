@@ -13,6 +13,7 @@ class User < ApplicationRecord
    }
   
   has_many :reviews, dependent: :destroy
+  has_many :comments, dependent: :destroy
   #フォローしているユーザーとのアソシエーション
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
