@@ -15,11 +15,11 @@ class Public::ReviewsController < Public::ApplicationController
 
   def index
   end
-
+  
+  #reviewはitemの情報も持っているため、itemに紐付いたreviewに紐付いたコメントが作成できる
   def show
     @review = Review.find(params[:id])
-    @item = @review.item.id
-    @comment = Comment.new
+    @comment = Comment.new(review_id: @review.id)
   end
 
   def edit
