@@ -4,7 +4,8 @@
       <%= attachment_image_tag @item, :image, format: "jpeg", size: "200x220" %> <br>
       <%= link_to "投稿する", new_item_review_path(@item) %>
     </div>
-
+    
+    <%#商品情報%>
     <div class="col-7 offset-2">
       <div class="row">
         <div class="col-2"><p>商品名</p></div>
@@ -28,6 +29,7 @@
     </div>
   </div>
 
+  <%#レビューの一覧%>
   <div class="row mt-5">
     <div class="offset-2">
       <% @reviews.each do |review| %>
