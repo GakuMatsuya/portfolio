@@ -1,5 +1,4 @@
-class Public::UsersController < ApplicationController
-  before_action :authenticate_user!
+class Public::UsersController < Public::ApplicationController
   before_action :ensure_correct_user, only: [:edit]
 
   def show

@@ -1,5 +1,4 @@
-class Public::ReviewsController < ApplicationController
-  before_action :authenticate_user!
+class Public::ReviewsController < Public::ApplicationController
 
   def new
     @review = Review.new
@@ -19,6 +18,8 @@ class Public::ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @item = @review.item.id
+    @comment = Comment.new
   end
 
   def edit

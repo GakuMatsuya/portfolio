@@ -1,4 +1,4 @@
-class Public::CommentsController < ApplicationController
+class Public::CommentsController < Public::ApplicationController
   
   def create
   end
