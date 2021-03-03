@@ -19,7 +19,7 @@
         <div class="mt-2 ml-3">
           <%= l comment.created_at %>
           <% if comment.user_id == current_user.id %>
-            <i class="far fa-trash-alt ml-3"></i>
+            <%= link_to "", item_review_comment_path(@review.item_id, @review.id, comment.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "far fa-trash-alt ml-3" %>
           <% end %>
         </div>
     </div>
