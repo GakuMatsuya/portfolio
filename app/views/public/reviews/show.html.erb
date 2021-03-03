@@ -18,6 +18,9 @@
       <%= link_to comment.user.name, user_path(comment.user_id), class: "ml-3 mt-2" %>
         <div class="mt-2 ml-3">
           <%= l comment.created_at %>
+          <% if comment.user_id == current_user.id %>
+            <i class="far fa-trash-alt ml-3"></i>
+          <% end %>
         </div>
     </div>
     <div class="row mb-4 mt-4"><%= comment.text %></div>
