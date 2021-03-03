@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     end
     resources :items, only: [:index, :show] do
       resources :reviews do
-        resources :comments, only: [:create, :edit, :update, :destroy] 
+        resources :comments, only: [:create, :destroy] 
       end
     end
     resources :relationships, only: [:create, :destroy]

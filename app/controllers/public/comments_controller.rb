@@ -10,12 +10,6 @@ class Public::CommentsController < Public::ApplicationController
     redirect_to item_review_path(review.item_id, review)
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   def destroy
   end
   
