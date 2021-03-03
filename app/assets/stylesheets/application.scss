@@ -15,3 +15,24 @@
  */
  
  @import "bootstrap";
+ 
+body {
+  //body全体の表示領域を確保
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+}
+
+ //body,footerをのぞいた高さをmainで埋める
+main 
+  flex: 1;
+  background: #ffffff;
+}
+ 
+ footer {
+   background: #1d1b3f;
+   color: white;
+   height: 40px;
+   text-align: right;
+ }
