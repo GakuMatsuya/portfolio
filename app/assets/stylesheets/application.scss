@@ -24,10 +24,8 @@ body {
   flex-flow: column;
 }
 
- //body,footerをのぞいた高さをmainで埋める
-main 
-  flex: 1;
-  background: #ffffff;
+main {
+ flex: 1;
 }
  
  footer {
