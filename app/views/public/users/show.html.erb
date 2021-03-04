@@ -33,4 +33,14 @@
       </li>
     </ul>
   </nav>
+
+  <% @user.reviews.each do |review| %>
+    <div class="card mb-3 mt-4 offset-2" style="max-width: 40rem;">
+      <div class="card-body text-dark">
+        <p><%= l review.created_at %></p>
+        <%= attachment_image_tag review.item, :image, format: "jpeg", size: "60x60", fallback: "no_image.jpg", class: "card-title" %>
+        <p calss="card-text"><%= review.text %></p>
+      </div>
+    </div>
+  <% end %>
 </div>
