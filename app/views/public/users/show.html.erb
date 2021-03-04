@@ -35,20 +35,34 @@
   </nav>
 
   <% @user.reviews.each do |review| %>
-    <div class="card mb-3 mt-5 offset-2" style="max-width: 40rem; max-height: 15rem;">
-      <div class="card-body">
+    <%= link_to item_review_path(review.item_id, review.id),  class: "card-body" do %>
+      <div class="card mb-3 mt-5 offset-2" style="max-width: 40rem; max-height: 15rem;">
         <div class="row">
           <div class="col-3">
             <%= attachment_image_tag review.item, :image, format: "jpeg", size: "150x180", fallback: "no_image.jpg"%>
           </div>
           <div class="col-9 mt-3">
-             <%= review.text %>
+            <div class="rate<%= review.id %> mt-1 mb-3" data-score="<%= review.rate %>"></div>
+            <%= review.text %>
           </div>
         </div>
-        <p class="mt- text-right"><%= l review.created_at %></p>
-
-
+        <p class="text-right"><%= l review.created_at %></p>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
+
+
+<script>
+  <% @user.reviews.each do |review| %>
+  $(".rate<%= review.id %>").raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    starOff: "<%= asset_path('star-off.png') %>",
+    starOn: "<%= asset_path('star-on.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>"
+  });
+  <% end %>
+</script>
