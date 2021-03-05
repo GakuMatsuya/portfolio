@@ -8,9 +8,7 @@
         <div class="ml-3"><%= l @review.updated_at %></div>
       </div>
       <div class="rate<%= @review.id %> mt-2 offset-2" data-score="<%= @review.rate %>"></div>
-      <div class="row offset-2">
-        <div class="mt-3 col-9"><%= @review.text %></div>
-      </div>
+      <div class="mt-3 col-9 offset-2"><%= @review.text %></div>
     </div>
   </div>
 
