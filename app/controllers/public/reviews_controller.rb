@@ -31,6 +31,9 @@ class Public::ReviewsController < Public::ApplicationController
   end
 
   def update
+    review = Review.find(params[:id])
+    review.update(review_params)
+    redirect_to item_review_path(review.item_id, review)
   end
 
   def destroy
