@@ -30,6 +30,7 @@
       </li>
       <li>
         <p class="ml-4">お気に入り</p>
+        <%= link_to "#{@user.likes.count}件", followers_user_path(@user.id), class: "nav-link ml-4" %>
       </li>
     </ul>
   </nav>
