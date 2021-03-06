@@ -30,6 +30,10 @@ class Public::UsersController < Public::ApplicationController
     @user = User.find(params[:id])
     @users = @user.followers.all
   end
+  
+  def likes
+    @user = User.find(params[:id])
+  end
 
   def unsubscribe
   end

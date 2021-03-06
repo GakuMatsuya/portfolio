@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :users, except:[:create, :new, :destroy] do
       get :followings, on: :member
       get :followers, on: :member
+      get :likes, on: :member
     end
     resources :items, only: [:index, :show] do
       resources :reviews do
