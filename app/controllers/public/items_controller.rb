@@ -12,7 +12,7 @@ class Public::ItemsController < Public::ApplicationController
     if @item.reviews.blank?
       @average_review = 0
     else
-      @average_review = @item.reviews.average(:rate)
+      @average_review = @item.reviews.average(:rate).round(1)
     end
   end
 
