@@ -7,7 +7,7 @@
         <%= link_to @review.user.name, user_path(@review.user_id) %>
         <div class="ml-3"><%= l @review.updated_at %></div>
         <% if @review.user_id == current_user.id %>
-          <%= link_to "", item_review_path(@review.item_id, @review.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "far fa-trash-alt ml-3" %>
+          <%= link_to "", edit_item_review_path(@review.item_id, @review.id), class: "fas fa-cog ml-4 mt-1" %>
         <% end %>
       </div>
       <div class="rate<%= @review.id %> mt-2 offset-2" data-score="<%= @review.rate %>"></div>
@@ -32,8 +32,6 @@
     <div class="row mb-4 mt-4"><%= comment.text %></div>
     <% end %>
   </div>
-
-
 
 
   <%#createアクションに飛ばす際review_idが必要なため、hidden_fieldで追加%>
