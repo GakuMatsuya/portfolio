@@ -42,7 +42,7 @@
         </div>
 
         <% if current_user.liked_by?(review.id) %>
-          <%= link_to "", create_like_path(review), method: :DELETE, class: "fas fa-heart" %>
+          <%= link_to "", destroy_like_path(review), method: :DELETE, class: "fas fa-heart" %>
         <% else %>
            <%= link_to "", create_like_path(review), method: :POST, class: "far fa-heart" %>
         <% end %>
