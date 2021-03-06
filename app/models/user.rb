@@ -41,5 +41,10 @@ class User < ApplicationRecord
     relationship = self.relationships.find_by(follow_id: other_user.id)
     relationship.destroy if relationship
   end
+  
+  #likesテーブルにreview_idが存在するか確認
+  def liked_by?(review_id)
+    likes.where(review_id: review_id).exists?
+  end
 
 end
