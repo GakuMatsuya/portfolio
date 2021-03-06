@@ -1,0 +1,2 @@
+<%#id=likes_buttons_<%= @review.idのHTMLを、renderで部分的に更新%>
+$("#likes_buttons_<%= @review.id %>").html("<%= j(render "public/likes/like", review: @review) %>");

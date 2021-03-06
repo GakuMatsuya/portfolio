@@ -40,12 +40,10 @@
             <p class="ml-5"><%= l review.updated_at%></p>
           </div>
         </div>
-
-        <% if current_user.liked_by?(review.id) %>
-          <%= link_to "", destroy_like_path(review), method: :DELETE, class: "fas fa-heart" %>
-        <% else %>
-           <%= link_to "", create_like_path(review), method: :POST, class: "far fa-heart" %>
-        <% end %>
+        
+        <div id="likes_buttons_<%= review.id %>">
+          <%= render "public/likes/like", review: review %>
+        </div>
 
         <div class="rate<%= review.id %> mt-1 mb-3 offset-1" data-score="<%= review.rate %>"></div>
         <div class="col-9 offset-1 mb-3"><%= review.text %></div>
