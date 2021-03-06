@@ -1,6 +1,6 @@
 <%#objectタグで無理やりリンクを入れているので、時間があれば後ほど修正%>
 <% if current_user.liked_by?(review.id) %>
-  <object><%= link_to "", destroy_like_path(review), method: :delete, class: "fas fa-heart offset-3", remote: true %></obect>　<%#js形式でリクエストを送る%>
+  <%= link_to review.likes.count, destroy_like_path(review), method: :delete, class: "fas fa-heart offset-3", remote: true %> <%#js形式でリクエストを送る%>
 <% else %>
-  <object><%= link_to "", create_like_path(review), method: :post, class: "far fa-heart offset-3", remote: true %></object>
+  <%= link_to "", create_like_path(review), method: :post, class: "far fa-heart offset-3", remote: true %>
 <% end %>
