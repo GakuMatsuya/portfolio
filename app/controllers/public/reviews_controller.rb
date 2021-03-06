@@ -27,9 +27,6 @@ class Public::ReviewsController < Public::ApplicationController
     @user = @review.user_id
   end
 
-  def like
-  end
-
   def update
     review = Review.find(params[:id])
     review.update(review_params)
