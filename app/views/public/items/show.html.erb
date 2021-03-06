@@ -42,9 +42,9 @@
         </div>
 
         <% if current_user.liked_by?(review.id) %>
-          <i class="fas fa-heart"></i>
+          <%= link_to "", create_like_path(review), method: :DELETE, class: "fas fa-heart" %>
         <% else %>
-          <i class="far fa-heart offset-3 mb-3"></i>
+           <%= link_to "", create_like_path(review), method: :POST, class: "far fa-heart" %>
         <% end %>
 
         <div class="rate<%= review.id %> mt-1 mb-3 offset-1" data-score="<%= review.rate %>"></div>

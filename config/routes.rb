@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   }
   
   get "/" => "public/homes#top"
+  post "like/:id" => "public/likes#create", as: "create_like"
+  delete "like/:id" => "public/likes#destroy", as: "destroy_like"
   
   #urlにadminをつけることで、ユーザー側と区別
   namespace :admin do
