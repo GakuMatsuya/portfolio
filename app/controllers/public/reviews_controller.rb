@@ -23,6 +23,8 @@ class Public::ReviewsController < Public::ApplicationController
   end
 
   def edit
+    @review = Review.find(params[:id])
+    @user = @review.user_id
   end
 
   def like
@@ -32,6 +34,9 @@ class Public::ReviewsController < Public::ApplicationController
   end
 
   def destroy
+    review = Review.find(params[:id])
+    review.destroy
+    redirect_to user_path(review.user_id)
   end
 
   private
