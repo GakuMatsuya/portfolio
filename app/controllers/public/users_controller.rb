@@ -30,12 +30,15 @@ class Public::UsersController < Public::ApplicationController
     @user = User.find(params[:id])
     @users = @user.followers.all
   end
-  
+
   def likes
     @user = User.find(params[:id])
   end
-  
+
   def timeline
+    @user = User.find(current_user.id)
+    @follow_users = @user.followings.all
+    @reviews = Review.where(user_id: @follow_users)
   end
 
   def unsubscribe
@@ -49,7 +52,7 @@ class Public::UsersController < Public::ApplicationController
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
-  
+
   #他ユーザーの情報編集を制限
   def ensure_correct_user
     @user = User.find(params[:id])
