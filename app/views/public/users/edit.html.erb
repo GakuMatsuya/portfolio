@@ -22,8 +22,8 @@
   </div>
 
   <div class="row mt-4 offset-4">
-      <%= f.submit "編集内容を保存", class: "btn text-white btn-success" %>
-      <%= link_to "退会する", new_user_session_path, class: "btn btn-danger offset-1" %>
+      <%= f.submit "編集内容を保存", class: "btn btn-outline-success text-dark" %>
+      <%= link_to "退会する", unsubscribe_user_path(@user), class: "btn btn-outline-danger offset-1" %>
   </div>
   <% end %>
 </div>
