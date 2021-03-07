@@ -48,6 +48,8 @@ class Public::UsersController < Public::ApplicationController
   def withdraw
     @user = current_user
     @user.update(user_params)
+    #ログアウトさせる
+    reset_session
     redirect_to "/"
   end
 
