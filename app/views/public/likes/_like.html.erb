@@ -2,5 +2,5 @@
 <% if current_user.liked_by?(review.id) %>
   <%= link_to "いいね#{review.likes.count}", destroy_like_path(review), method: :delete, class: "fas fa-heart", remote: true %> <%#js形式でリクエストを送る%>
 <% else %>
-  <%= link_to "いいね", create_like_path(review), method: :post, class: "far fa-heart", remote: true %>
+  <%= link_to "いいね#{review.likes.count}", create_like_path(review), method: :post, class: "far fa-heart", remote: true %>
 <% end %>
