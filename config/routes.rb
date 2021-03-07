@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       get :followers, on: :member
       get :likes, on: :member
       get :timeline, on: :member
+      get :unsubscribe, on: :member
     end
     resources :items, only: [:index, :show] do
       resources :reviews, except:[:index] do
