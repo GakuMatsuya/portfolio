@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row offset-4 mt-5">
+    <p><b>本当に退会しますか？</b></p>
+  </div>
+
+  <%= form_with model: @user, url: withdraw_user_path(@user), local:true do |f| %>
+  <div class="row mt-5">
+    <div class="offset-4"><%= link_to "退会しない", user_path(@user), class: "btn btn-outline-primary" %></div>
+    <%= f.hidden_field :is_active, :value => "withdrawn" %>
+    <%= f.submit "退会する", :class=>"btn btn-sm text-black btn-outline-danger ml-5" %>
+  </div>
+  <% end %>
+</div>
