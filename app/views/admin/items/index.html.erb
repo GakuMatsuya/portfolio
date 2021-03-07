@@ -21,7 +21,7 @@
         <td><%= item.id %></td>
         <td><%= link_to item.name, admin_item_path(item.id) %></td>
         <td><%= item.genre.name %></td>
-        <td></td>
+        <td><%= item.reviews.count %></td>
       </tr>
       <% end %>
     </tbody>
