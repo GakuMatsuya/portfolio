@@ -4,10 +4,10 @@ class Public::RelationshipsController < Public::ApplicationController
   def create
     following = current_user.follow(@user)
     if following.save
-      flash[:success] = "フォローしました"
+      flash[:notice] = "フォローしました"
       redirect_to user_path(@user)
     else
-      flash[:danger] = "フォローに失敗しました"
+      flash[:alert] = "フォローに失敗しました"
       redirect_to user_path(@user)
     end
   end
@@ -15,10 +15,10 @@ class Public::RelationshipsController < Public::ApplicationController
   def destroy
     following = current_user.unfollow(@user)
     if following.destroy
-      flash[:success] = "フォローを解除しました"
+      flash[:notice] = "フォローを解除しました"
       redirect_to user_path(@user)
     else
-      flash[:danger] = "フォロー解除に失敗しました"
+      flash[:alert] = "フォロー解除に失敗しました"
       redirect_to user_path(@user)
     end
   end
