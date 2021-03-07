@@ -42,15 +42,19 @@ class Public::UsersController < Public::ApplicationController
   end
 
   def unsubscribe
+    @user = current_user
   end
 
   def withdraw
+    @user = current_user
+    @user.update(user_params)
+    redirect_to "/"
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
+    params.require(:user).permit(:name, :introduction, :profile_image, :is_active)
   end
 
   #他ユーザーの情報編集を制限
