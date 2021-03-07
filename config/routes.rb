@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       get :likes, on: :member
     end
     resources :items, only: [:index, :show] do
-      resources :reviews do
+      resources :reviews, except:[:index] do
         resources :comments, only: [:create, :destroy] 
       end
     end
