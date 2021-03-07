@@ -13,9 +13,6 @@ class Public::ReviewsController < Public::ApplicationController
     redirect_to item_path(@item)
   end
 
-  def index
-  end
-  
   #reviewはitemの情報も持っているため、itemに紐付いたreviewに紐付いたコメントが作成できる
   def show
     @review = Review.find(params[:id])
