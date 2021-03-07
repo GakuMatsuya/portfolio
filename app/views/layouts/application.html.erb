@@ -14,7 +14,13 @@
     <header>
       <nav class="navbar navbar-expand-md">
         <div class="container">
-          <ul class="navbar-nav navbarapplication_controller-right">
+          <ul class="navbar-nav">
+            <li>
+              <%= link_to "DORIBA", "/", class: "nav-link logo" %>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li>
                 <%= link_to "タイムライン", admin_items_path, class: "nav-link" %>
@@ -27,7 +33,7 @@
               </li>
               <%# 後ほどハンバーガーメニューを追加%>
               <li>
-                <%= link_to "メニュー" %>
+                <%= link_to "メニュー", admin_items_path, class: "nav-link" %>
               </li>
             <% else %>
               <li>
@@ -35,17 +41,17 @@
               </li>
               <li>
                 <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
-              </li>  
+              </li>
             <% end %>
           </ul>
         </div>
       </nav>
     </header>
-      
+
     <main>
       <%= yield %>
     </main>
-      
+
     <footer>
       <p>DORIBA</p>
     </footer>
