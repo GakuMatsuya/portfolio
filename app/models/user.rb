@@ -3,8 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
-  #メソッドを持たせる
   attachment :profile_image
          
   enum is_active:{
@@ -45,6 +43,11 @@ class User < ApplicationRecord
   #likesテーブルにreview_idが存在するか確認
   def liked_by?(review_id)
     likes.where(review_id: review_id).exists?
+  end
+  
+  #有効なユーザの場合trueを返す
+  def active_for_authentication?
+    super && (self.is_active == "effectiveness")
   end
 
 end

@@ -28,7 +28,18 @@ class Public::Sessions::SessionsController < Devise::SessionsController
     new_user_session_path
   end
 
-  # protected
+  protected
+
+   #退会済みユーザのログインを阻止
+  def reject_inactive_user
+    @user = User.find(email: params[:user][:email])
+  
+    #パスワードが正しいかチェックし、メソッドがfalseであることを確認。両方に当てはまればログインを拒否
+    if @user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false)
+      redirect_to new_user_session_path
+    end
+  end
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
