@@ -16,7 +16,7 @@
 
   <div class="row mt-3">
     <div class="col-2"><p>商品説明</p></div>
-    <div class="col-8"><%= f.text_area :introduction %></div>
+    <div class="col-8"><%= f.text_area :introduction, size: "40x10" %></div>
   </div>
 
   <div class="row mt-3">
@@ -25,9 +25,7 @@
   </div>
 
   <div class="row mt-3">
-    <div class="btn btn-sm btn-wrape btn-success offset-2">
-      <%= f.submit "商品登録", :class=>"btn text-white" %>
-    </div>
+    <%= f.submit "商品登録", :class=>"btn btn-outline-success offset-3" %>
   </div>
   <% end %>
 </div>
