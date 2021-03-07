@@ -26,3 +26,17 @@
     </div>
   <% end %>
 </div>
+
+<script>
+  <% @reviews.each do |review| %>
+  $(".rate<%= review.id %>").raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    starOff: "<%= asset_path('star-off.png') %>",
+    starOn: "<%= asset_path('star-on.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>"
+  });
+  <% end %>
+</script>
