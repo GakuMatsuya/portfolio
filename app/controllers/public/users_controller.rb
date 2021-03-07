@@ -34,6 +34,9 @@ class Public::UsersController < Public::ApplicationController
   def likes
     @user = User.find(params[:id])
   end
+  
+  def timeline
+  end
 
   def unsubscribe
   end
