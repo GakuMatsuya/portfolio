@@ -11,7 +11,6 @@ class Public::CommentsController < Public::ApplicationController
       redirect_to item_review_path(review.item_id, review)
     else
       flash[:alert] = "コメントに失敗しました"
-     #renderを使うとページ更新時にルーティングエラーが発生
       redirect_to item_review_path(review.item_id, review)
     end
   end
