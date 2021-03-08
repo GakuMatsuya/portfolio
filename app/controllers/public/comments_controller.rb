@@ -6,14 +6,25 @@ class Public::CommentsController < Public::ApplicationController
     comment.user_id = current_user.id
     comment.review_id = review.id
     comment.text = params[:comment][:text]
-    comment.save
-    redirect_to item_review_path(review.item_id, review)
+    if comment.save
+      flash[:notice] = "コメントしました"
+      redirect_to item_review_path(review.item_id, review)
+    else
+      flash[:alert] = "コメントに失敗しました"
+     #renderを使うとページ更新時にルーティングエラーが発生
+      redirect_to item_review_path(review.item_id, review)
+    end
   end
 
   def destroy
     comment = Comment.find(params[:id])
-    comment.destroy
-    redirect_to item_review_path(comment.review.item_id, comment.review_id)
+    if comment.destroy
+      flash[:notice] = "コメントを削除しました"
+      redirect_to item_review_path(comment.review.item_id, comment.review_id)
+    else
+      flash[:alert] = "削除に失敗しました"
+      redirect_to item_review_path(comment.review.item_id, comment.review_id)
+    end
   end
 
   private

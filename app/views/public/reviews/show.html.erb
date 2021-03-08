@@ -1,4 +1,6 @@
 <div class="container">
+  <%= render "layouts/flash" %>
+
   <%#レビューの詳細%>
   <div class="card offset-2" style="max-width: 40rem;">
     <div class="card-body">
@@ -46,9 +48,7 @@
     <%= form_with model: @comment, url: item_review_comments_path(review_id: @review.id), local:true do |f| %>
       <%= f.text_area :text, size: "40x5" %>
       <%= f.hidden_field :review_id, :value => @review.id %>
-    <div class="row offset-4 mt-2 mb-2">
-      <%= f.submit "コメントする", :class=>"btn text-white btn-success" %>
-    </div>
+      <%= f.submit "コメントする", class: "btn btn-outline-success offset-3 mt-2 mb-2" %>
     <% end %>
   </div>
 </div>
