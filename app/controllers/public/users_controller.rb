@@ -15,6 +15,7 @@ class Public::UsersController < Public::ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      flash[:notice] = "変更内容を保存しました"
       redirect_to user_path(@user)
     else
       render :edit
