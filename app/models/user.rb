@@ -22,6 +22,8 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :user
 
+  validates :name, presence: true
+  
   #すでにフォローしていればtrueを返す
   def following?(other_user)
     self.followings.include?(other_user)
