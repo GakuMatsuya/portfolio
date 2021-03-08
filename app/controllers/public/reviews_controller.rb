@@ -9,8 +9,11 @@ class Public::ReviewsController < Public::ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.item_id = @item.id
-    @review.save
-    redirect_to item_path(@item)
+    if @review.save
+      redirect_to item_path(@item)
+    else
+      render :new
+    end
   end
 
   #reviewはitemの情報も持っているため、itemに紐付いたreviewに紐付いたコメントが作成できる
