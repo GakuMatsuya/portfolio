@@ -10,6 +10,7 @@ class Public::ReviewsController < Public::ApplicationController
     @review.user_id = current_user.id
     @review.item_id = @item.id
     if @review.save
+      flash[:notice] = "レビューを投稿しました"
       redirect_to item_path(@item)
     else
       render :new
@@ -36,6 +37,7 @@ class Public::ReviewsController < Public::ApplicationController
   def destroy
     review = Review.find(params[:id])
     review.destroy
+    flash[:notice] = "レビューを削除しました"
     redirect_to user_path(review.user_id)
   end
 
