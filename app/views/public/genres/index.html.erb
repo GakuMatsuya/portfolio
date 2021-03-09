@@ -1,3 +1,33 @@
-<% @items.each do |item| %>
-  <%= item.name %>
-  <% end%>
+<div class="container">
+  <% @items.each do |item| %>
+
+    <div class="row mt-5 mb-5">
+      <div class="col-2 offset-1">
+        <%= attachment_image_tag item, :image, format: "jpeg", size: "200x220" %>
+      </div>
+
+      <%#商品情報%>
+      <div class="col-7 offset-2">
+        <div class="row">
+          <div class="col-2"><p>商品名</p></div>
+          <div class="col-8"><%= item.name %></div>
+        </div>
+
+        <div class="row">
+          <div class="col-2"><p>商品説明</p></div>
+          <div class="col-8"><%= item.introduction %></div>
+        </div>
+        
+        <% reviews = Review.where("item_id = #{item.id}") %>
+        <div class="row">
+          <div class="col-2"><p>口コミ<%= reviews.count %>件</p></div>
+          <div class="average-review-rating col-8" data-score="<%= @average_review %>"></div>
+          <%= render 'public/reviews/rate' %>
+          <div style="color: gold; font-size: 20px; font-weight: bold; "><%= @average_review %>点</div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
