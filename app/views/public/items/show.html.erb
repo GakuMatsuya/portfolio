@@ -26,7 +26,7 @@
       
       <div class="row">
         <div class="col-2"><p>口コミ<%= @reviews.count %>件</p></div>
-        <div class="average-review-rating col-8" data-score="<%= @average_review %>">
+        <div class="average-review-rating" data-score="<%= @average_review %>">
           <%= render 'public/reviews/rate' %>
           <div style="color: gold; font-size: 20px; font-weight: bold; "><%= @average_review %>点</div>
         </div>
