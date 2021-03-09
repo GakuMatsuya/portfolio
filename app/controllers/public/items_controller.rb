@@ -1,8 +1,4 @@
 class Public::ItemsController < Public::ApplicationController
-  
-
-  def index
-  end
 
   def show
     @item = Item.find(params[:id])
