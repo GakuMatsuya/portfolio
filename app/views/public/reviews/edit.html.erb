@@ -1,9 +1,13 @@
 <div class="container">
+  <%= render "layouts/flash" %>
+
   <div class="row">
     <div class="mt-3 bg-light"><h5>レビュー編集</h5></div>
   </div>
 
   <%= form_with model: [@item, @review], url: item_review_path, local:true do |f| %>
+  <%= render "layouts/error_messages", model: f.object %>
+
   <div class="row mt-5 offset-3">
     <%= f.hidden_field :rate %>
   </div>
@@ -12,7 +16,7 @@
     <%= f.text_area :text, size: "40x5" %>
   </div>
   <div class="row mt-5 offset-3">
-    <%= f.submit "変更する", :class=>"btn btn-outline-success offset-1" %>
+    <%= f.submit "変更する", class: "btn btn-outline-success offset-1" %>
     <% if @review.user_id == current_user.id %>
       <%= link_to "削除する", item_review_path(@review.item_id, @review.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-outline-danger ml-3" %>
     <% end %>
