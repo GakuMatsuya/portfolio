@@ -16,6 +16,11 @@
 
  @import "bootstrap";
 
+ * {
+  margin: 0;
+  padding: 0;
+ }
+
 body {
   //body全体の表示領域を確保
   min-height: 100vh;
@@ -23,6 +28,10 @@ body {
   display: flex;
   flex-flow: column;
   background: #F8F8FF;
+}
+
+ul {
+ list-style: none;
 }
 
 a:link, a:visited, a:hover, a:active {
@@ -63,4 +72,65 @@ header {
 .error {
  color: white;
  background-color: red;
+}
+
+#menu {
+ position: absolute;
+ top: 0;
+ //ナビメニューを隠した状態にする
+ right: -40%;
+ width: 40%;
+ background: #ffffff;
+ transition: .8s;
+}
+
+#menu a {
+ display: block;
+ color: #000000;
+ margin: 0 15px;
+ padding: 10px;
+ //#transition: .5s;
+}
+
+#menu li a:hover {
+ color: #ffffff;
+ background: #cd5c5c;
+ //border-bottom: none;
+}
+
+//アイコンの位置、幅の指定
+#menu-icon {
+ display: block;
+ position: absolute;
+ top: 20px;
+ right: 30px;
+ width: 30px;
+ height: 22px;
+ //cursor: pointer;
+ //transition: 1s;
+}
+
+//線の色、幅の指定
+.hm-line {
+ display: block;
+ position: absolute;
+ right: 0;
+ width: 30px;
+ height: 3px;
+ background-color: #858F8C;
+ //transition: 1s;
+ //border-radius: 4px;
+}
+
+//線の位置をそれぞれ指定
+#line1 {
+ top: 0;
+}
+
+#line2 {
+ top: 10px;
+}
+
+#line3 {
+ bottom: 0px;
 }
