@@ -1,5 +1,5 @@
 class Public::UsersController < Public::ApplicationController
-  before_action :ensure_correct_user, only: [:edit]
+  before_action :ensure_correct_user, only: [:edit, :update, :timeline, :unsubscribe, :withdraw]
 
   def show
     @user = User.find(params[:id])
@@ -67,7 +67,8 @@ class Public::UsersController < Public::ApplicationController
   def ensure_correct_user
     @user = User.find(params[:id])
     if @user.id != current_user.id
-     redirect_to user_path(@user)
+      flash[:alert] = "アクセス権限がありません"
+      redirect_to user_path(@user)
     end
   end
 
