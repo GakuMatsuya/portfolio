@@ -1,4 +1,4 @@
-<%#メニュー%>
+<%#メニュー表示内容%>
 <nav id="menu">
   <ul>
     <li><a href="#">BEER</a></li>
@@ -9,10 +9,21 @@
   </ul>
 </nav>
 
-<%#ハンバーガーメニューのアイコン部%>
-<div id="menu-icon">
-  <span class="hm-line" id="line-1"></span>
-  <span class="hm-line" id="line2"></span>
-  <span class="hm-line" id="line3"></span>
+<%#ハンバーガーボタン%>
+<div id="hamburger">
+  <span class="line" id="line1"></span>
+  <span class="line" id="line2"></span>
+  <span class="line" id="line3"></span>
 </div>
 
+<script>
+function hamburger() {
+  document.getElementById('line1').classList.toggle('line_1');
+  document.getElementById('line2').classList.toggle('line_2');
+  document.getElementById('line3').classList.toggle('line_3');
+  document.getElementById('menu').classList.toggle('in');
+}
+document.getElementById('hamburger').addEventListener('click' , function () {
+  hamburger();
+} );
+</script>
