@@ -28,7 +28,7 @@ body {
   /*flexを指定し、縦方向に並ぶようにする*/
   display: flex;
   flex-flow: column;
-  background: #F8F8FF;
+  background: #faf0e6;
 }
 
 /*ヘッダー、フッターの高さを除いた残りをmainで埋める*/
@@ -38,14 +38,14 @@ main {
 
 header {
   //ヘッダーを固定
-  background: #E8EAF6;
+  background: #ffdead;
   height: 80px;
   text-align: right;
   margin-bottom: 30px;
 }
 
 footer {
-   background: #E8EAF6;
+   background: #ffdead;
    height: 40px;
    text-align: right;
    margin-top: 30px;
