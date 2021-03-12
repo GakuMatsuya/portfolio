@@ -46,7 +46,7 @@ header {
 
 footer {
    background: #E8EAF6;
-   height: 80px;
+   height: 40px;
    text-align: right;
    margin-top: 30px;
  }
@@ -85,7 +85,7 @@ a:link, a:visited, a:hover, a:active {
   height: 100vh;
   background: #1B1310;
   transition: .7s;
-  z-index: 3;               /*前面に表示されるよう設定*/
+  z-index: 2;               /*前面に表示されるよう設定*/
 }
 #menu ul{
   padding-top: 80px;
@@ -120,7 +120,7 @@ a:link, a:visited, a:hover, a:active {
   height: 44px;
   cursor: pointer;
   transition: 1s;
-  z-index: 2;
+  z-index: 3;
 }
 
 .line {
@@ -129,7 +129,7 @@ a:link, a:visited, a:hover, a:active {
   right: 0;
   width: 50px;
   height: 3px;
-  background-color: #ffffff;
+  background-color: #a9a9a9;
   transition: 1s;
   border-radius: 4px;
 }
