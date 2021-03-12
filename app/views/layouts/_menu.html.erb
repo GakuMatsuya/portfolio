@@ -1,11 +1,11 @@
 <%#メニュー表示内容%>
 <nav id="menu">
   <ul>
-    <li><a href="#">BEER</a></li>
-    <li><a href="#">ウイスキー</a></li>
-    <li><a href="#">WINE</a></li>
-    <li><a href="#">SAKE</a></li>
-    <li><a href="#">LIQURE</a></li>
+    <li><a href="/genres?id=1">BEER</a></li>
+    <li><a href="/genres?id=2">WHISKY/WHISKEY</a></li>
+    <li><a href="/genres?id=3">WINE</a></li>
+    <li><a href="/genres?id=4">SAKE</a></li>
+    <li><a href="/genres?id=5">LIQURE</a></li>
   </ul>
 </nav>
 
@@ -19,7 +19,7 @@
 
 <script>
 /*htmlからIDを取得し、CSSで指定したクラス名を与える*/
-/*クリックした際、その関数を*/
+/*クリックした際、その関数を呼び出す*/
 function hamburger() {
   document.getElementById('line1').classList.toggle('line_1');
   document.getElementById('line2').classList.toggle('line_2');
