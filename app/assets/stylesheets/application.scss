@@ -114,7 +114,7 @@ a:link, a:visited, a:hover, a:active {
 #hamburger {
   display: block;
   position: absolute;
-  top: 20px;
+  top: 30px;
   right: 30px;
   width: 50px;
   height: 44px;
@@ -127,7 +127,7 @@ a:link, a:visited, a:hover, a:active {
   display: block;
   position: absolute;
   right: 0;
-  width: 50px;
+  width: 30px;
   height: 3px;
   background-color: #a9a9a9;
   transition: 1s;
@@ -138,10 +138,10 @@ a:link, a:visited, a:hover, a:active {
   top: 0;
 }
 #line2 {
-  top: 20px;
+  top: 10px;
 }
 #line3 {
-  bottom: 0px;
+  bottom: 20px;
 }
 
 .in{
