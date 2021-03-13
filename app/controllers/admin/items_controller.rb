@@ -19,9 +19,9 @@ class Admin::ItemsController < ApplicationController
   def index
     @q = Item.ransack(params[:q])
     @items = @q.result(distinct: true).includes(:genre)
-    #@items = Item.all.includes(:genre)
   end
-
+  
+  #フォームから送られた内容に一致するデータを@itemsに格納(重複したレコードは削除)
   def search
     @q = Item.search(search_params)
     @items = @q.result(distinct: true).includes(:genre)
@@ -52,7 +52,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit(:name_cont, :genre_cont)
+    params.require(:q).permit(:name_cont)
   end
 
 end
