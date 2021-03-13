@@ -2,7 +2,10 @@
 <%= render "layouts/flash" %>
 
   <h5 class="mt-3">検索結果</h5>
+
   <%= render "layouts/search_form" %>
+  <%=link_to "一覧画面に戻る", admin_items_path, class: "offset-10 text-primary" %>
+
   <table class="table mt-3">
     <thead>
       <tr>
