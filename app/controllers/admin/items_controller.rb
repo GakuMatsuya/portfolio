@@ -17,7 +17,14 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all.includes(:genre)
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true).includes(:genre)
+    #@items = Item.all.includes(:genre)
+  end
+
+  def search
+    @q = Item.search(search_params)
+    @items = @q.result(distinct: true).includes(:genre)
   end
 
   def show
@@ -42,6 +49,10 @@ class Admin::ItemsController < ApplicationController
 
   def admin_item_params
     params.require(:item).permit(:image, :name, :introduction, :genre_id)
+  end
+
+  def search_params
+    params.require(:q).permit(:name_cont, :genre_cont)
   end
 
 end
