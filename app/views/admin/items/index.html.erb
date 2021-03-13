@@ -2,7 +2,7 @@
 <%= render "layouts/flash" %>
 
   <h5 class="mt-3">商品一覧</h5>
-  <%= render "layouts/search_form" %>
+  <%= render "admin/items/search_form" %>
   <div class="text-right"><%= button_to "＋", {controller: "admin/items", action: "new"}, method: :get %></div>
 
   <table class="table mt-3">
