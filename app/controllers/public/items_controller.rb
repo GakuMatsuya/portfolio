@@ -11,5 +11,10 @@ class Public::ItemsController < Public::ApplicationController
       @average_review = @item.reviews.average(:rate).round(1)
     end
   end
+  
+  #itemテーブルにreviewテーブルを
+  def index
+    @items = Item.all.left_joins(:reviews).group(:id).select("items.*, count(reviews.item_id) as count, avg(reviews.rate) as average")
+  end
 
 end

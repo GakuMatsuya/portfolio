@@ -31,7 +31,7 @@ Rails.application.routes.draw do
       get :unsubscribe, on: :member
       patch :withdraw, on: :member
     end
-    resources :items, only: [:show] do
+    resources :items, only: [:show, :index] do
       resources :reviews, except:[:index] do
         resources :comments, only: [:create, :destroy]
       end
