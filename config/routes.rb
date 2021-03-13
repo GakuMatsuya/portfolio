@@ -13,11 +13,14 @@ Rails.application.routes.draw do
   get "/" => "public/homes#top"
   post "like/:id" => "public/likes#create", as: "create_like"
   delete "like/:id" => "public/likes#destroy", as: "destroy_like"
-  get "search", to: "admin/items#search"
 
   #urlにadminをつけることで、ユーザー側と区別
   namespace :admin do
-    resources :items, except:[:destroy]
+    resources :items, except:[:destroy] do
+      collection do
+        get "search"
+      end
+    end
     resources :users, except:[:new, :create, :show, :destroy]
   end
 
