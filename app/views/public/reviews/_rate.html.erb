@@ -11,7 +11,7 @@
 
 <%#class=average-review-ratingに対して発火。平均を%>
 <script>
-  $(".average-review-rating").raty({
+  $(".average<%= item.id%>").raty({
     readOnly: true,
     starOff: "<%= asset_path('star-off.png') %>",
     starOn: "<%= asset_path('star-on.png') %>",
@@ -22,3 +22,4 @@
     half: true
   });
 </script>
+
