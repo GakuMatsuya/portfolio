@@ -21,10 +21,6 @@ class Public::UsersController < Public::ApplicationController
       render :edit
     end
   end
-
-  def index
-  end
-
   def followings
     @user = User.find(params[:id])
     @users = @user.followings.all
