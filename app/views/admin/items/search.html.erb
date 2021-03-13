@@ -1,0 +1,27 @@
+<div class="container">
+<%= render "layouts/flash" %>
+
+  <h5 class="mt-3">検索結果</h5>
+  <%= render "layouts/search_form" %>
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>ジャンル</th>
+        <th>レビュー数</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @items.each do |item| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= link_to item.name, admin_item_path(item.id) %></td>
+        <td><%= item.genre.name %></td>
+        <td><%= item.reviews.count %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
