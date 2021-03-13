@@ -35,7 +35,7 @@
     </ul>
   </nav>
 
-  <% @user.reviews.each do |review| %>
+  <% @user.reviews.includes(:item).each do |review| %>
     <div class="card mb-3 mt-5 offset-2" style="max-width: 40rem;">
       <div class="row card-body">
         <div class="col-3">
