@@ -1,10 +1,8 @@
 <div class="container">
 <%= render "layouts/flash" %>
-  
-  <div class="row">
-    <div class="mt-3"><h4>商品一覧</h4></div>
-  </div>
 
+  <h5 class="mt-3">商品一覧</h5>
+  <%= render "layouts/search_form" %>
   <div class="text-right"><%= button_to "＋", {controller: "admin/items", action: "new"}, method: :get %></div>
 
   <table class="table mt-3">
