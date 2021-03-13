@@ -12,5 +12,8 @@ class Review < ApplicationRecord
   }, presence: true
   
   validates :text, presence: true
+  
+  #投稿を降り順で表示
+  default_scope -> { order(created_at: :desc) }
 
 end
