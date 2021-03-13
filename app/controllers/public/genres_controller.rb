@@ -2,16 +2,9 @@ class Public::GenresController < ApplicationController
 
   def index
     @genre = Genre.find(params[:id])
-    @items = Item.where("genre_id = #{@genre.id}")
     
-    @items.each do |item|
-     #レビューがあれば平均を、なければ0を
-      if item.reviews.blank?
-        @average_review = 0
-      else
-        @average_review = item.reviews.average(:rate).round(1)
-      end
-    end
+    #itemテーブルにreviewテーブルを結合
+    @items = Item.all.left_joins(:reviews).group(:id).select('items.*, count(reviews.item_id) as count, avg(reviews.rate) as average').where(genre_id: @genre.id)
   end
 
 end
