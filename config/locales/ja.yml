@@ -14,6 +14,11 @@ ja:
         text: "投稿内容"
       user:
         name: "名前"
+      item:
+        genre: "ジャンル"
+        name: "商品名"
+        introduction: "商品説明"
+        image: "商品画像"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
