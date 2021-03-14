@@ -1,5 +1,6 @@
 class Admin::ItemsController < ApplicationController
   before_action :authenticate_admin!
+  before_action :set_q, only: [:index, :search]
   layout "admin"
 
   def new
@@ -17,14 +18,12 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
-    @q = Item.ransack(params[:q])
-    @items = @q.result(distinct: true).includes(:genre)
+    @items = Item.all.includes(:genre)
   end
   
-  #フォームから送られた内容に一致するデータを@itemsに格納(重複したレコードは削除)
+  
   def search
-    @q = Item.search(search_params)
-    @items = @q.result(distinct: true).includes(:genre)
+    @items = @q.result
   end
 
   def show
@@ -51,8 +50,9 @@ class Admin::ItemsController < ApplicationController
     params.require(:item).permit(:image, :name, :introduction, :genre_id)
   end
 
-  def search_params
-    params.require(:q).permit(:name_cont)
+  #パラメータを元にテーブルからデータを検索し、@qに代入
+  def set_q
+    @q = Item.all.left_joins(:reviews).group(:id).select("items.*, count(reviews.item_id) as count, avg(reviews.rate) as average").ransack(params[:q])
   end
 
 end
