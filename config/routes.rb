@@ -34,12 +34,22 @@ Rails.application.routes.draw do
       get :unsubscribe, on: :member
       patch :withdraw, on: :member
     end
+    
     resources :items, only: [:show, :index] do
+      collection do
+        get "search"
+      end
       resources :reviews, except:[:index] do
         resources :comments, only: [:create, :destroy]
       end
     end
-    resources :genres, params: :id, only:[:index]
+    
+    resources :genres, params: :id, only:[:index] do
+      collection do
+        get "search"
+      end
+    end
+
     resources :relationships, only: [:create, :destroy]
   end
 end
