@@ -1,5 +1,6 @@
 <div class="container">
    <h2 class="title offset-1"><%= @genre.name %></h2>
+   <%= render "public/genres/search_form" %>
 
   <% @items.each do |item| %>
     <div class="card mb-3 mt-5 offset-2" style="max-width: 40rem;">
@@ -20,7 +21,7 @@
             <div class="col-4"><p>商品説明</p></div>
             <div class="col-6"><%= item.introduction %></div>
           </div>
-          
+
           <div class="row">
             <div class="col-4"><p>口コミ<%= item.count %>件</p></div>
             <% if item.average != nil %>
