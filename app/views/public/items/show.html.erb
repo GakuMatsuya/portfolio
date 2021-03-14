@@ -3,8 +3,7 @@
 
   <div class="row mt-5 mb-5">
     <div class="col-2 offset-1">
-      <%= attachment_image_tag @item, :image, format: "jpeg", size: "200x220" %> <br>
-      <%= link_to "投稿する", new_item_review_path(@item) %>
+      <%= attachment_image_tag @item, :image, format: "jpeg", size: "200x220" %>
     </div>
 
     <%#商品情報%>
@@ -28,8 +27,12 @@
         <div class="col-2"><p>口コミ<%= @reviews.count %>件</p></div>
         <div class="average<%= @item.id %>" data-score="<%= @average_review %>">
           <%= render 'public/reviews/rate', item: @item %>
-          <div style="color: gold; font-size: 20px; font-weight: bold; "><%= @average_review %>点</div>
+          <div style="color: gold; font-size: 20px; font-weight: bold;"><%= @average_review %>点</div>
         </div>
+      </div>
+
+      <div class="row">
+        <%= link_to "レビューを投稿", new_item_review_path(@item), class: "btn btn-outline-success ml-5 mt-3" %>
       </div>
     </div>
   </div>
