@@ -1,14 +1,3 @@
-<%#id=starに対して発火。新規投稿で呼び出す%>
-<script>
-  $("#star").raty({
-    starOff: "<%= asset_path('star-off.png') %>",
-    starOn: "<%= asset_path('star-on.png') %>",
-    starHalf: "<%= asset_path('star-half.png') %>",
-    scoreName: "review[rate]",
-    half: true
-  });
-</script>
-
 <%#class=average-review-ratingに対して発火。平均を%>
 <script>
   $(".average<%= item.id %>").raty({
