@@ -1,4 +1,3 @@
-<%#objectタグで無理やりリンクを入れているので、時間があれば後ほど修正%>
 <% if current_user.liked_by?(review.id) %>
   <%= link_to "いいね#{review.likes.count}", destroy_like_path(review), method: :delete, class: "fas fa-heart", remote: true %> <%#js形式でリクエストを送る%>
 <% else %>
