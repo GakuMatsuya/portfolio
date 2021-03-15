@@ -4,49 +4,47 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   attachment :profile_image
-         
+
   enum is_active:{
     effectiveness:        true,    #有効なユーザー
     withdrawn:            false    #退会済みユーザー
    }
-  
+   
+   validates :name, presence: true
+
   has_many :reviews, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  
-  #フォローしているユーザーとのアソシエーション
-  has_many :relationships, dependent: :destroy
-  has_many :followings, through: :relationships, source: :follow
-  
-  #フォロワーとのアソシエーション  
-  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy
-  has_many :followers, through: :reverse_of_relationships, source: :user
 
-  validates :name, presence: true
-  
-  #すでにフォローしていればtrueを返す
-  def following?(other_user)
-    self.followings.include?(other_user)
+  #フォローしているユーザーとのアソシエーション
+  has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
+  has_many :following, through: :following_relationships
+
+  #フォロワーとのアソシエーション
+  has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
+  has_many :followers, through: :follower_relationships
+
+  #フォローしているか確認
+  def following?(user)
+    following_relationships.find_by(following_id: user.id)
   end
-  
-  #ユーザーをフォローする(自分自身をフォローしていないか,重複していないかを検証)
-  def follow(other_user)
-    unless self == other_user
-      self.relationships.find_or_create_by(follow_id: other_user.id)
-    end
+
+  #ユーザーをフォローする
+  def follow(user)
+    following_relationships.create!(following_id: user.id)
   end
-  
-  #フォローがあるか確認し、あればアンフォロー
-  def unfollow(other_user)
-    relationship = self.relationships.find_by(follow_id: other_user.id)
-    relationship.destroy if relationship
+
+
+  #フォローを外す
+  def unfollow(user)
+    following_relationships.find_by(following_id: user.id).destroy
   end
-  
+
   #likesテーブルにreview_idが存在するか確認
   def liked_by?(review_id)
     likes.where(review_id: review_id).exists?
   end
-  
+
   #有効なユーザの場合trueを返す
   def active_for_authentication?
     super && (self.is_active == "effectiveness")
