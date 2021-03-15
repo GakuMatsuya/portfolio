@@ -11,9 +11,8 @@
       <div class="col-3 offset-1 mt-5">
         <% if @user.id == current_user.id %>
           <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-secondary fas fa-user-cog" %>
-        <% else %>
-          <%= render "public/relationships/follow_button", user: @user %>
         <% end %>
+        <%= render "public/relationships/follow_form", user: @user %>
       </div>
     </div>
   </div>
@@ -22,11 +21,11 @@
     <ul class="navbar-nav">
       <li>
         <p class="ml-4">フォロー</p>
-        <%= link_to "#{@user.followings.count}人", followings_user_path(@user), class: "nav-link ml-4" %>
+        <%= link_to "#{@user.following.count}人", following_user_path(@user.id), class: "nav-link ml-4" %>
       </li>
       <li>
         <p class="ml-4">フォロワー</p>
-        <%= link_to "#{@user.followers.count}人", followers_user_path(@user), class: "nav-link ml-4" %>
+        <%= link_to "#{@user.followers.count}人", followers_user_path(@user.id), class: "nav-link ml-4" %>
       </li>
       <li>
         <p class="ml-4">お気に入り</p>
