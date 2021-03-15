@@ -1,12 +1,13 @@
 class Relationship < ApplicationRecord
   
-  belongs_to :user
+  #自分をフォローしているユーザー
+  belongs_to :follower, class_name: "User"
 
-  #userクラスにbelongs_toするよう、補足設定
-  belongs_to :follow, class_name: "User"
+  #自分がフォローしている
+  belongs_to :following, class_name: "User"
   
   #両方のidが揃っていないと保存されないように設定
-  validates :user_id, presence: true
-  validates :follow_id, presence: true
+  validates :follower_id, presence: true
+  validates :following_id, presence: true
 
 end
