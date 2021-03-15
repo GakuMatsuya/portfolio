@@ -3,9 +3,6 @@ class Public::UsersController < Public::ApplicationController
 
   def show
     @user = User.find(params[:id])
-    #currnt_userと@userのリレーションシップを取得
-    @relationship = current_user.relationships.find_by(follow_id: @user.id)
-    @set_relationship = current_user.relationships.new
   end
 
   def edit
@@ -21,9 +18,10 @@ class Public::UsersController < Public::ApplicationController
       render :edit
     end
   end
-  def followings
+  
+  def following
     @user = User.find(params[:id])
-    @users = @user.followings.all
+    @users = @user.following.all
   end
 
   def followers
@@ -37,7 +35,7 @@ class Public::UsersController < Public::ApplicationController
 
   def timeline
     @user = User.find(current_user.id)
-    @follow_users = @user.followings.all
+    @follow_users = @user.following.all
     @reviews = Review.where(user_id: @follow_users)
   end
 
