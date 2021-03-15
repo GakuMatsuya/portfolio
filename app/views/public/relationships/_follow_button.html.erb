@@ -1,20 +1,4 @@
-<%#自分自身のことをフォローできないように設定%>
-<% unless current_user == user %>
-
-<div id="follow_button">
-  <%#フォロー解除ボタン%>
-  <% if current_user.following?(user) %>
-    <%= form_with model: @relationship, url: relationship_path, method: :delete, remote: true do |f| %>
-      <%= f.hidden_field :follow_id, value: user.id %>
-      <%= f.submit "フォローを解除する", class: "btn btn-outline-danger" %>
-    <% end %>
-  
-  <%#フォローボタン%>
-  <% else %>
-    <%= form_with model: @set_relationship, url: relationships_path, remote: true do |f| %>
-      <%= f.hidden_field :follow_id, value: user.id %>
-      <%= f.submit "フォローする", class: "btn btn-outline-primary" %>
-    <% end %>
-  <% end %>
+<%= form_for(current_user, url: relationships_path, method: :post, remote: :true) do |f| %>
+  <%= hidden_field_tag :following_id, user.id %>
+    <%= f.submit "フォローする", class: "btn btn-outline-primary" %>
 <% end %>
-</div>
