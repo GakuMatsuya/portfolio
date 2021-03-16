@@ -9,12 +9,16 @@ class User < ApplicationRecord
     effectiveness:        true,    #有効なユーザー
     withdrawn:            false    #退会済みユーザー
    }
-   
+
    validates :name, presence: true
 
   has_many :reviews, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+
+  #likesテーブルを通して、reviewの情報を取ってくる
+  has_many :liked_reviews, through: :likes, source: :review
+
 
   #フォローしているユーザーとのアソシエーション
   has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
