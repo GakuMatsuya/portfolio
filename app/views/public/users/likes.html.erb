@@ -21,7 +21,7 @@
 
         <div class="row offset-5">
           <div id="likes_buttons_<%= review.id %>"><%= render "public/likes/like", review: review %></div>
-          <%= link_to "コメント", item_review_path(review.item_id, review), class: "ml-5" %>
+          <%= link_to "コメント", item_review_path(review.item_id, review), class: " mt-1 ml-5 far fa-comment" %>
         </div>
       </div>
     </div>
