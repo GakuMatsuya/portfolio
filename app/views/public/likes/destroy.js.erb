@@ -1,2 +1,5 @@
 <%#id=likes_buttons_<%= @review.idのHTMLを、renderで更新%>
 $("#likes_buttons_<%= @review.id %>").html("<%= j(render "public/likes/like", review: @review) %>");
+
+<%#いいねを取り消した後のいいね数を表示%>
+$("#like_count_<%= @user.id %>").html('<%= link_to "#{@user.likes.count}件", likes_user_path(@user), class: "nav-link ml-4" %>');
