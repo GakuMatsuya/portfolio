@@ -49,6 +49,9 @@
     </header>
 
     <main>
+      <% if flash %>
+        <div class="flash"><%= render "layouts/flash" %></div>
+        <%end%>
       <%= yield %>
     </main>
 
