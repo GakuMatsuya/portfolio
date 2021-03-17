@@ -1,1 +1,4 @@
 $("#follow_form").html("<%= j(render("public/relationships/unfollow")) %>");
+
+<%#flashメッセージを非同期で更新%>
+$("#flash_message").html("<%= j(render("layouts/flash")) %>");
