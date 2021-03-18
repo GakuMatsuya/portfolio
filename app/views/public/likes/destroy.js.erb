@@ -3,3 +3,6 @@ $("#likes_buttons_<%= @review.id %>").html("<%= j(render "public/likes/like", re
 
 <%#いいねを取り消した後のいいね数を表示%>
 $("#like_count_<%= @user.id %>").html('<%= link_to "#{@user.likes.count}件", likes_user_path(@user), class: "nav-link ml-4" %>');
+
+<%#flashメッセージを非同期で更新%>
+$(".flash").html("<%= j(render("layouts/flash")) %>");
