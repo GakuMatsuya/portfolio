@@ -20,9 +20,3 @@
 //= require jquery_ujs
 //= require_tree .
 //= require jquery.raty.js
-
-/* falshメッセージをフェードアウト */
-/* global $ */
-$(function() {
-  setTimeout("$('.flash').fadeOut('slow')", 2000);
-});
