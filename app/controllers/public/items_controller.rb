@@ -3,7 +3,7 @@ class Public::ItemsController < Public::ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @reviews = @item.reviews.includes(:user)
+    @reviews = @item.reviews.includes(:user).page(params[:page]).per(5)
 
     #レビューがあれば平均を、なければ0を
     if @item.reviews.blank?
