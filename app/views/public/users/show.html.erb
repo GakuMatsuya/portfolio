@@ -35,7 +35,6 @@
     </ul>
   </nav>
 
-  <%# @user.reviews.page(params[:page]).includes(:item).each do |review| %>
   <% @reviews.each do |review| %>
     <div class="card mb-3 mt-5 offset-2" style="max-width: 40rem;">
       <div class="row card-body">
@@ -57,9 +56,11 @@
       </div>
     </div>
   <% end %>
-</div>
 
-<%= paginate @reviews %>
+  <div class="mt-5 offset-4">
+    <%= paginate @reviews %>
+  </div>
+</div>
 
 
 <script>
