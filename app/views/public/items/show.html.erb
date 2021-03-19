@@ -36,7 +36,7 @@
   </div>
 
   <%#レビューの一覧%>
-  <% @reviews.includes(:user).each do |review| %>
+  <% @reviews.each do |review| %>
     <div class="card mb-3 offset-2" style="max-width: 40rem;">
       <div class="row offset-1 mt-2 card-body">
         <%= link_to user_path(review.user_id) do %>
