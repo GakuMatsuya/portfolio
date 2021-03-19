@@ -4,7 +4,8 @@
   </div>
 
 
-  <% @user.liked_reviews.includes(:item, :user).each do |review| %>
+  <%# @user.liked_reviews.includes(:item, :user).each do |review| %>
+  <% @reviews.each do |review| %>
     <div class="card mb-3 mt-5 offset-2" style="max-width: 40rem;">
 
       <div class="row card-body">
@@ -31,6 +32,10 @@
       </div>
     </div>
   <% end %>
+  
+  <div class="mt-5 offset-4">
+    <%= paginate @reviews %>
+  </div>
 </div>
 
 

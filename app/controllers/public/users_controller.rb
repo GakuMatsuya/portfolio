@@ -19,7 +19,7 @@ class Public::UsersController < Public::ApplicationController
       render :edit
     end
   end
-  
+
   def following
     @user = User.find(params[:id])
     @users = @user.following.all
@@ -32,6 +32,7 @@ class Public::UsersController < Public::ApplicationController
 
   def likes
     @user = User.find(params[:id])
+    @reviews = @user.liked_reviews.includes(:item, :user).page(params[:page]).per(5)
   end
 
   def timeline
