@@ -6,7 +6,7 @@ class Review < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
 
-  #レートを1以上5以下に設定
+  #レートを0.5以上5以下に設定
   validates :rate, numericality: {
     less_than_or_equal_to: 5,
     greater_than_or_equal_to: 0.5
