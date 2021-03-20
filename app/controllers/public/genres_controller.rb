@@ -10,6 +10,7 @@ class Public::GenresController < ApplicationController
 
   def search
     @items = @q.result
+    @genre = Genre.find(params[:genre_id])
   end
 
   private
