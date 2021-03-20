@@ -6,32 +6,27 @@
  }
 
 body {
-  //body全体の表示領域を確保
-  min-height: 100vh;
-  margin: 0;
-  /*flexを指定し、縦方向に並ぶようにする*/
-  display: flex;
-  flex-flow: column;
   background: #faf0e6;
-}
-
-/*ヘッダー、フッターの高さを除いた残りをmainで埋める*/
-main {
- flex: 1;
 }
 
 header {
   background: #ffdead;
   height: 80px;
-  text-align: right;
-  //margin-bottom: 30px;
+}
+
+.footerFixed {
+  min-height: 100vh;  //コンテンツの高さの最小値=ブラウザの高さ//
+  position: relative;
+  padding-bottom: 40px;
+  box-sizing: border-box;
 }
 
 footer {
-   background: #ffdead;
-   height: 40px;
-   text-align: right;
-   margin-top: 30px;
+  position: absolute;
+  bottom: 0;
+  background: #ffdead;
+  width: 100%;
+  text-align: right;
  }
 
 ul {
