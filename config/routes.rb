@@ -36,7 +36,7 @@ Rails.application.routes.draw do
       patch :withdraw, on: :member
     end
     
-    #collectionでidを伴わない
+    #collectionでidを伴わないパスを追加
     resources :items, only: [:show, :index] do
       collection do
         get "search"
