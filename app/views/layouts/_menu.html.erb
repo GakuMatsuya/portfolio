@@ -20,12 +20,16 @@
 
 <script>
 /*htmlからIDを取得し、CSSで指定したクラス名を与える*/
-/*クリックした際、その関数を呼び出す*/
+/*hamburgerをクリックした際、その関数を呼び出す*/
 function hamburger() {
   document.getElementById('line1').classList.toggle('line_1');
   document.getElementById('line2').classList.toggle('line_2');
   document.getElementById('line3').classList.toggle('line_3');
   document.getElementById('menu').classList.toggle('in');
+  
+/*elementsにbodyタグを代入、操作したい要素のインデックスを指定し、classを付与*/
+  let elements = document.getElementsByTagName('body');
+  elements[0].classList.toggle('noscroll');
 }
 document.getElementById('hamburger').addEventListener('click' , function () {
   hamburger();

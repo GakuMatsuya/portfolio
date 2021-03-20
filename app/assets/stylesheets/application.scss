@@ -145,6 +145,10 @@ a:link, a:visited, a:hover, a:active {
   bottom: 0;
 }
 
+body.noscroll {
+  overflow: hidden;
+}
+
 .title {
   font-family: 'Garamond';
   font-weight: bold;
