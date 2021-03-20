@@ -47,9 +47,7 @@ Rails.application.routes.draw do
     end
     
     resources :genres, params: :id, only:[:index] do
-      collection do
-        get "search"
-      end
+      get "search"
     end
 
     resources :relationships, only: [:create, :destroy]
