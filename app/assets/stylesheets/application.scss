@@ -15,7 +15,8 @@ header {
 }
 
 .footerFixed {
-  min-height: 100vh;  //コンテンツの高さの最小値=ブラウザの高さ//
+  //コンテンツの高さの最小値=ブラウザの高さ//
+  min-height: 100vh;
   position: relative;
   padding-bottom: 40px;
   box-sizing: border-box;
@@ -38,12 +39,7 @@ a:link, a:visited, a:hover, a:active {
  text-decoration: none;
 }
 
- .logo {
-  font-size: 30px;
-  font-family: "Garamond";
-  font-weight: bold;
-}
-
+/*flashメッセージ*/
 .notice {
   background-color: #afeeee;
 }
@@ -52,32 +48,36 @@ a:link, a:visited, a:hover, a:active {
   background-color: red;
 }
 
+/*errorメッセージ*/
 .error {
  color: white;
  background-color: red;
 }
 
+/*ハンバーガーメニュー*/
 #menu{
   position: fixed;
-  right: -40%;               /*右側に隠す*/
+  /*右側に隠す*/
+  right: -40%;
   width: 40%;
   height: 100vh;
   background: #1B1310;
   transition: .7s;
-  z-index: 2;               /*前面に表示されるよう設定*/
+  /*前面に表示されるよう設定*/
+  z-index: 2;
 }
+
 #menu ul{
   padding-top: 80px;
 }
 
 #menu ul li{
-  list-style-type: none;
   font-size: 20px;
+  font-family: 'Garamond';
 }
 
 #menu a{
   display: block;
-  text-decoration: none;
   color: #ffffff;
   margin: 0 15px;
   padding: 10px;
@@ -86,7 +86,6 @@ a:link, a:visited, a:hover, a:active {
 #menu li a:hover{
   color: #ffffff;
   background: #cd5c5c;
-  border-bottom: none;
 }
 
 /*ハンバーガーアイコン*/
@@ -123,6 +122,7 @@ a:link, a:visited, a:hover, a:active {
   bottom: 20px;
 }
 
+/*メニューopen時*/
 .in{
   transform: translateX(-100%);
 }
