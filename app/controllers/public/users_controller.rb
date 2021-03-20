@@ -38,7 +38,7 @@ class Public::UsersController < Public::ApplicationController
   def timeline
     @user = User.find(current_user.id)
     @follow_users = @user.following
-    @reviews = Review.where(user_id: @follow_users).includes(:item, :user)
+    @reviews = Review.where(user_id: @follow_users).includes(:item, :user).page(params[:page]).per(5)
   end
 
   def unsubscribe
