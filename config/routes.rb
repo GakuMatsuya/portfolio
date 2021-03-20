@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       patch :withdraw, on: :member
     end
     
+    #collectionでidを伴わない
     resources :items, only: [:show, :index] do
       collection do
         get "search"
