@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="mt-3 title">New review</h2>
+  <h4 class="mt-5">新規レビュー投稿</h4>
 
   <%= form_with model: [@item, @review], url: item_reviews_path, local:true do |f| %>
   <%= render "layouts/error_messages", model: f.object %>
@@ -8,7 +8,7 @@
     <%= f.label :rate, class: "col-1 mr-5" %>
     <%= f.hidden_field :rate %>
   </div>
-  <%#= render "public/reviews/rate" %>
+  
   <div class="row mt-5 offset-3">
     <%= f.label :コメント, class: "mr-5" %>
     <%= f.text_area :text, size: "40x5" %>
