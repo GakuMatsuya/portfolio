@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <% if @reviews.present? %>
     <% @reviews.each do |review| %>
-      <div class="card mt-3 offset-2" style="max-width: 40rem;">
+      <div class="card mt-3 offset-2 mb-5" style="max-width: 40rem;">
         <div class="row card-body">
           <div class="col-3">
             <%= link_to item_path(review.item_id) do %>
