@@ -40,8 +40,8 @@
 
 
 <script>
-  <% @user.likes.includes(:review).each do |like| %>
-  $(".rate<%= like.review.id %>").raty({
+  <% @reviews.each do |review| %>
+  $(".rate<%= review.id %>").raty({
     readOnly: true,
     score: function() {
       return $(this).attr('data-score');
