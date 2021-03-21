@@ -1,6 +1,7 @@
 <div class="offset-9 mb-3">
   <%= search_form_for @q, url: genre_search_path(@genre.id) do |f| %>
-    <%= f.search_field :name_cont, placeholder: "何かお探しですか?" %>
+    <%= f.search_field :name_cont, placeholder: "#{@genre.name}を探す" %>
+    <%= f.hidden_field :genre_id_eq, :value => @genre.id %>
     <button type="submit"><i class="fas fa-search"></i></button>
   <% end %>
 </div>
