@@ -7,8 +7,8 @@ RSpec.describe "Adminモデルのテスト", type: :model do
       expect(admin).to be_invalid
       expect(admin.errors[:email]).to include("を入力してください")
     end
-    it "encrypted_passwordが空白の場合にバリデーションチェックされるか" do
-      admin = Admin.new(email: "hogehoge@mail.com", encrypted_password: "")
+    it "passwordが空白の場合にバリデーションチェックされるか" do
+      admin = Admin.new(email: "hogehoge@mail.com", password: "")
       expect(admin).to be_invalid
     end
   end
