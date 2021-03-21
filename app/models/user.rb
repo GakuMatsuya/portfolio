@@ -10,7 +10,7 @@ class User < ApplicationRecord
     withdrawn:            false    #退会済みユーザー
    }
 
-   validates :name, presence: true
+  validates :name, presence: true
 
   has_many :reviews, dependent: :destroy
   has_many :comments, dependent: :destroy
