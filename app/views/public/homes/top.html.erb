@@ -1,4 +1,4 @@
-<div class=container-fluid>
+<div class="container-fluid">
   <div class="row">
     <div class="col px-0">
       <div class="top-page">
@@ -15,35 +15,53 @@
     </div>
   </div>
 
-<div class="row offset-5 mt-5">
-  <h4>DORIBAでできること</h4>
-</div>
 
-<div class-"row">
+  <h4 class="text-center mt-5">DORIBAでできること</h4>
+
+
   <div class="row">
-    <div class="col-4 mt-5">
-      <h5 class="text-center">お酒のレビュー投稿</h5>
-      <img class="d-block mx-auto" src="/assets/top1.jpg", width="250" height="150">
-      <p class="text-center mt-3">おすすめのお酒のレビューを投稿出来ます。</br>
-      他のユーザーからコメントがもらえるかも!?</p>
-    </div>
+    <div class="row">
+      <div class="col-4 mt-5">
+        <h5 class="text-center">お酒のレビュー投稿</h5>
+        <img class="d-block mx-auto" src="/assets/top1.jpg", width="250" height="150">
+        <p class="text-center mt-3">おすすめのお酒のレビューを投稿出来ます。</br>
+        他のユーザーからコメントがもらえるかも!?</p>
+      </div>
 
-    <div class="col-4 mt-5">
-      <h5 class="text-center">気になった人をフォロー</h5>
-      <img class="d-block mx-auto" src="/assets/top2.jpg", width="250" height="150">
-      <p class="text-center mt-3">気になった人はフォローすることが出来ます。</br>
-      同じお酒が好きな人と仲良くなれるかも
-      </p>
-    </div>
+      <div class="col-4 mt-5">
+        <h5 class="text-center">気になった人をフォロー</h5>
+        <img class="d-block mx-auto" src="/assets/top2.jpg", width="250" height="150">
+        <p class="text-center mt-3">気になった人はフォローすることが出来ます。</br>
+        同じお酒が好きな人と仲良くなれるかも
+        </p>
+      </div>
 
-    <div class="col-4 mt-5">
-      <h5 class="text-center">新たなお酒との出会い</h5>
-      <img class="d-block mx-auto" src="/assets/top3.jpg", width="250" height="150">
-      <p class="text-center mt-3">趣味が合う人が普段飲んでいるお酒を知ることで、
-      新たなお酒と出会うことが出来ます。
-      </p>
+      <div class="col-4 mt-5">
+        <h5 class="text-center">新たなお酒との出会い</h5>
+        <img class="d-block mx-auto" src="/assets/top3.jpg", width="250" height="150">
+        <p class="text-center mt-3">趣味が合う人が普段飲んでいるお酒を知ることで、
+        新たなお酒と出会うことが出来ます。
+        </p>
+      </div>
     </div>
   </div>
+
+  <div style="height: 500px;">
+    <h4 class="text-center" style="line-height: 260px;">さあ、今すぐはじめよう!</h4>
+
+    <div class="row offset-3">
+      <div class="col-5">
+        <h5>会員登録がお済みの方</h5>
+        <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary text-white ml-5 mt-3" %>
+      </div>
+
+      <div class="col-4">
+        <h5>まだ登録していない方</h5>
+        <%= link_to "新規会員登録", new_user_registration_path, class: "btn btn-success text-white ml-5 mt-3" %>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script>
