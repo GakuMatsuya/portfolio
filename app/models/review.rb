@@ -4,7 +4,6 @@ class Review < ApplicationRecord
   belongs_to :item
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :liked_users, through: :likes, source: :user
 
   #レートを0.5以上5以下に設定
   validates :rate, numericality: {
