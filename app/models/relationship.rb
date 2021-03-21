@@ -7,7 +7,5 @@ class Relationship < ApplicationRecord
   belongs_to :following, class_name: "User"
   
   #両方のidが揃っていないと保存されないように設定
-  validates :follower_id, presence: true
-  validates :following_id, presence: true
-
+  validates :follower_id, :following_id, presence: true
 end
