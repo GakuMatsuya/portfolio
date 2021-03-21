@@ -8,7 +8,7 @@
       </div>
       <div class="col-3 offset-1 mt-5">
         <% if @user.id == current_user.id %>
-          <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-secondary fas fa-user-cog" %>
+          <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-success text-white fas fa-user-cog" %>
         <% end %>
         <%= render "public/relationships/follow_form", user: @user %>
       </div>

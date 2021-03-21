@@ -5,9 +5,9 @@
 
   <%= form_with model: @user, url: withdraw_user_path(@user), local:true do |f| %>
   <div class="row mt-5">
-    <div class="offset-4"><%= link_to "退会しない", user_path(@user), class: "btn btn-outline-primary" %></div>
+    <div class="offset-4"><%= link_to "退会しない", user_path(@user), class: "btn btn-primary text-white" %></div>
     <%= f.hidden_field :is_active, :value => "withdrawn" %>
-    <%= f.submit "退会する", :class=>"btn btn-sm text-black btn-outline-danger ml-5" %>
+    <%= f.submit "退会する", class: "btn btn-danger ml-5" %>
   </div>
   <% end %>
 </div>

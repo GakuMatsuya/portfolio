@@ -47,7 +47,7 @@
     <%= form_with model: @comment, url: item_review_comments_path(review_id: @review.id), local:true do |f| %>
       <%= f.text_area :text, size: "40x5", placeholder: "コメントを入力" %>
       <%= f.hidden_field :review_id, :value => @review.id %>
-      <%= f.submit "コメントする", class: "btn btn-outline-success offset-3 mt-2 mb-2" %>
+      <%= f.submit "コメントする", class: "btn btn-success offset-3 mt-2 mb-2" %>
     <% end %>
   </div>
 </div>
