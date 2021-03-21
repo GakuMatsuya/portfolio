@@ -4,25 +4,29 @@
   <%= render "admin/items/search_form" %>
   <%=link_to "一覧画面に戻る", admin_items_path, class: "offset-10 text-primary" %>
 
-  <table class="table mt-3">
-    <thead>
-      <tr>
-        <th>商品ID</th>
-        <th>商品名</th>
-        <th>ジャンル</th>
-        <th>レビュー数</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @items.each do |item| %>
-      <tr>
-        <td><%= item.id %></td>
-        <td><%= link_to item.name, admin_item_path(item.id) %></td>
-        <td><%= item.genre.name %></td>
-        <td><%= item.reviews.count %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <% if @items.present? %>
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>ジャンル</th>
+          <th>レビュー数</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <% @items.each do |item| %>
+        <tr>
+          <td><%= item.id %></td>
+          <td><%= link_to item.name, admin_item_path(item.id) %></td>
+          <td><%= item.genre.name %></td>
+          <td><%= item.reviews.count %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <h4 class="text-center mt-5" style="color: gray;">一致する商品がありません</h4>
+  <% end %> 
 </div>
