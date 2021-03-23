@@ -4,7 +4,7 @@
   <%= form_with model: [@item, @review], url: item_review_path, local:true do |f| %>
   <%= render "layouts/error_messages", model: f.object %>
 
-  <div class="row mt-5 offset-3">
+  <div class="row mt-5 offset-3" id="star">
     <%= f.hidden_field :rate %>
   </div>
   <div class="rate<%= @review.id %> mt-2 offset-3" data-score="<%= @review.rate %>"></div>
