@@ -1,5 +1,5 @@
 class Public::UsersController < Public::ApplicationController
-  before_action :ensure_correct_user, only: [:edit, :update, :timeline, :unsubscribe, :withdraw]
+  before_action :ensure_correct_user, only: [:edit, :update, :timeline, :unsubscribe, :withdraw, :following, :followers, :likes]
 
   def show
     @user = User.find(params[:id])
