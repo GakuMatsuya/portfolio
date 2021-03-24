@@ -60,4 +60,26 @@ describe "仕上げのテスト" do
       is_expected.to have_content "変更内容を保存しました"
     end
   end
+
+  describe "処理失敗時のテスト" do
+    context "ユーザー新規登録失敗: passwordを5文字にする" do
+      before do
+        visit new_user_registration_path
+        @password = Faker::Lorem.characters(number: 5)
+        fill_in "user[name]", with: Faker::Name.name
+        fill_in "user[email]", with: "a" + user.email  #user,other_userと違う値にするため
+        fill_in "user[password]", with: @password
+        fill_in "user[password_confirmation]", with: @password
+      end
+      
+      it "新規登録されない" do
+        expect { click_button "新規登録" }.not_to change(User.all, :count)
+      end
+      
+      it "バリデーションエラーが表示される" do
+        click_button "新規登録"
+        expect(page).to have_content "6文字以上で入力してください"
+      end
+    end
+  end
 end
