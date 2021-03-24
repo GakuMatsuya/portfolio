@@ -1,4 +1,5 @@
 class Public::ReviewsController < Public::ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update, :new, :create, :destroy]
 
   def new
     @review = Review.new
@@ -49,6 +50,15 @@ class Public::ReviewsController < Public::ApplicationController
 
   def review_params
     params.require(:review).permit(:rate, :text)
+  end
+  
+  #他ユーザーの情報編集を制限
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    if @user.id != current_user.id
+      flash[:alert] = "アクセス権限がありません"
+      redirect_to user_path(@user)
+    end
   end
 
 end
