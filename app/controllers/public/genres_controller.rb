@@ -1,4 +1,4 @@
-class Public::GenresController < ApplicationController
+class Public::GenresController < Public::ApplicationController
   before_action :set_q
 
   def index
