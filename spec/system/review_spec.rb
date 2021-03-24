@@ -69,13 +69,5 @@ describe "ユーザログイン後のテスト" do
         expect(page).to have_content "保存しました"
       end
     end
-    
-    context "他人の投稿編集のテスト" do
-      it "ユーザー詳細画面にリダイレクトされ、エラーメッセージが表示される" do
-        visit edit_item_review_path(item, other_review)
-        expect(current_path).to eq "/users/" + other_review.user_id.to_s
-        expect(page).to have_content "権限がありません"
-      end
-    end
   end
 end
