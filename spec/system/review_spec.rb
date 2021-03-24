@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe "ユーザログイン後のテスト" do
   let!(:user) { create(:user) }
+  let!(:other_user) { create(:user) }
   let!(:review) { create(:review, user: user) }
+  let!(:other_review) { create(:review, user: other_user) }
   let!(:item) { create(:item) }
 
   before do
@@ -35,7 +37,7 @@ describe "ユーザログイン後のテスト" do
       it "投稿に失敗する" do
         click_button "投稿する"
         expect(page).to have_content "エラー"
-        expect(current_path).to eq("/items/2/reviews")
+        expect(current_path).to eq("/items/3/reviews")
       end
     end
   end
@@ -65,6 +67,14 @@ describe "ユーザログイン後のテスト" do
       it "リダイレクト先が、更新した投稿の詳細画面になっている" do
         expect(current_path).to eq "/items/1/reviews/" + review.id.to_s
         expect(page).to have_content "保存しました"
+      end
+    end
+    
+    context "他人の投稿編集のテスト" do
+      it "ユーザー詳細画面にリダイレクトされ、エラーメッセージが表示される" do
+        visit edit_item_review_path(item, other_review)
+        expect(current_path).to eq "/users/" + other_review.user_id.to_s
+        expect(page).to have_content "権限がありません"
       end
     end
   end
