@@ -39,7 +39,7 @@ describe "仕上げのテスト" do
       click_link logout_link
       is_expected.to have_content "ログアウトしました"
     end
-    
+
     it "ユーザーのプロフィール更新成功時" do
       visit new_user_session_path
       visit new_user_session_path
@@ -50,7 +50,7 @@ describe "仕上げのテスト" do
       click_button "編集内容を保存"
       is_expected.to have_content "変更内容を保存しました"
     end
-    
+
     it "投稿レビューの更新成功時" do
       visit new_user_session_path
       visit new_user_session_path
@@ -73,22 +73,22 @@ describe "仕上げのテスト" do
         fill_in "user[password]", with: @password
         fill_in "user[password_confirmation]", with: @password
       end
-      
+
       it "新規登録されない" do
         expect { click_button "新規登録" }.not_to change(User.all, :count)
       end
-      
+
       it "バリデーションエラーが表示される" do
         click_button "新規登録"
         expect(page).to have_content "6文字以上で入力してください"
       end
     end
   end
-  
+
   describe "未ログイン時のアクセス制限のテスト: アクセスできず、ログイン画面に遷移" do
     #current_pathがテスト対象
     subject { current_path }
-    
+
     it "ユーザー詳細画面" do
       visit user_path(user)
       is_expected.to eq "/sign_in"
@@ -136,6 +136,71 @@ describe "仕上げのテスト" do
     it "商品詳細画面" do
       visit item_path(item)
       is_expected.to eq "/sign_in"
+    end
+  end
+
+  describe "他人の画面のテスト" do
+    before do
+      visit new_user_session_path
+      fill_in "user[email]", with: user.email
+      fill_in "user[password]", with: user.password
+      click_button "ログイン"
+    end
+
+    context "他人の投稿編集のテスト" do
+      it "ユーザー詳細画面にリダイレクトされ、エラーメッセージが表示される" do
+        visit edit_item_review_path(item, other_review)
+        expect(current_path).to eq "/users/" + other_review.user_id.to_s
+        expect(page).to have_content "権限がありません"
+      end
+    end
+
+    context "他人のプロフィール編集のテスト" do
+      it "ユーザー詳細画面にリダイレクトされ、エラーメッセージが表示される" do
+        visit edit_user_path(other_user)
+        expect(current_path).to eq "/users/" + other_user.id.to_s
+        expect(page).to have_content "権限がありません"
+      end
+    end
+
+    context "他人のタイムライン画面のテスト" do
+      it "ユーザー詳細画面にリダイレクトされ、エラーメッセージが表示される" do
+        visit timeline_user_path(other_user)
+        expect(current_path).to eq "/users/" + other_user.id.to_s
+        expect(page).to have_content "権限がありません"
+      end
+    end
+
+    context "他人のフォロワー一覧画面のテスト" do
+      it "ユーザー詳細画面にリダイレクトされ、エラーメッセージが表示される" do
+        visit followers_user_path(other_user)
+        expect(current_path).to eq "/users/" + other_user.id.to_s
+        expect(page).to have_content "権限がありません"
+      end
+    end
+
+    context "他人のフォローユーザー一覧画面のテスト" do
+      it "ユーザー詳細画面にリダイレクトされ、エラーメッセージが表示される" do
+        visit following_user_path(other_user)
+        expect(current_path).to eq "/users/" + other_user.id.to_s
+        expect(page).to have_content "権限がありません"
+      end
+    end
+
+    context "他人のいいね一覧画面のテスト" do
+      it "ユーザー詳細画面にリダイレクトされ、エラーメッセージが表示される" do
+        visit likes_user_path(other_user)
+        expect(current_path).to eq "/users/" + other_user.id.to_s
+        expect(page).to have_content "権限がありません"
+      end
+    end
+
+    context "他人の退会画面のテスト" do
+      it "ユーザー詳細画面にリダイレクトされ、エラーメッセージが表示される" do
+        visit unsubscribe_user_path(other_user)
+        expect(current_path).to eq "/users/" + other_user.id.to_s
+        expect(page).to have_content "権限がありません"
+      end
     end
   end
 end
