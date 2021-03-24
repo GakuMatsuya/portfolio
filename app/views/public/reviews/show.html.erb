@@ -1,5 +1,4 @@
 <div class="container">
-  <h4 class="mt-5">レビュー詳細</h4>
 
   <%#レビューの詳細%>
   <div class="card offset-2 mt-5" style="max-width: 40rem;">
@@ -27,7 +26,7 @@
 
   <%#コメント表示%>
   <div class="offset-3 mt-5">
-    <% @review.comments.each do |comment| %>
+    <% @review.comments.includes([:user]).each do |comment| %>
     <div class="row">
       <%= attachment_image_tag comment.user, :profile_image, format: "jpeg", size: "60x60", fallback: "no_image.jpg" %>
       <%= link_to comment.user.name, user_path(comment.user_id), class: "ml-3 mt-2" %>
