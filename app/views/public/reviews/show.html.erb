@@ -18,26 +18,24 @@
         <% if @review.user_id == current_user.id %>
           <%= link_to "編集", edit_item_review_path(@review.item_id, @review.id), class: "fas fa-cog ml-4 mt-1" %>
         <% end %>
-        </div>
       </div>
     </div>
   </div>
 
-
   <%#コメント表示%>
-  <div class="offset-3 mt-5">
+  <div class="offset-4 mt-5">
     <% @review.comments.includes([:user]).each do |comment| %>
     <div class="row">
       <%= attachment_image_tag comment.user, :profile_image, format: "jpeg", size: "60x60", fallback: "no_image.jpg" %>
       <%= link_to comment.user.name, user_path(comment.user_id), class: "ml-3 mt-2" %>
-        <div class="mt-2 ml-3">
-          <%= l comment.created_at %>
-          <% if comment.user_id == current_user.id %>
-            <%= link_to "", item_review_comment_path(@review.item_id, @review.id, comment.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "far fa-trash-alt ml-3" %>
-          <% end %>
-        </div>
+      <div class="mt-2 ml-3">
+        <%= l comment.created_at %>
+        <% if comment.user_id == current_user.id %>
+          <%= link_to "", item_review_comment_path(@review.item_id, @review.id, comment.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "far fa-trash-alt ml-3" %>
+        <% end %>
+      </div>
     </div>
-    <div class="row mb-4 mt-4"><%= comment.text %></div>
+    <div class="col-5 mb-4 mt-4"><%= comment.text %></div>
     <% end %>
   </div>
 
