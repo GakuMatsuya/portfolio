@@ -22,6 +22,7 @@ class Public::ReviewsController < Public::ApplicationController
   def show
     @review = Review.find(params[:id])
     @comment = Comment.new(review_id: @review.id)
+    @comments = @review.comments.includes([:user])
   end
 
   def edit
@@ -49,9 +50,9 @@ class Public::ReviewsController < Public::ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rate, :text)
+    params.require(:review).permit(:rate, :text, :user_id, :item_id)
   end
-  
+
   #他ユーザーの情報編集を制限
   def ensure_correct_user
     review = Review.find(params[:id])
