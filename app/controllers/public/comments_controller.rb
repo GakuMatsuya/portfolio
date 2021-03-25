@@ -11,8 +11,10 @@ class Public::CommentsController < Public::ApplicationController
       flash[:notice] = "コメントしました"
       render :index
     else
-
+      flash[:alert] = "コメントに失敗しました"
+      render :index
     end
+    flash.discard
   end
 
   def destroy
@@ -22,11 +24,11 @@ class Public::CommentsController < Public::ApplicationController
     if @comment.destroy
       flash[:notice] = "コメントを削除しました"
       render :index
-   # else
-  #    flash[:alert] = "削除に失敗しました"
-   #   render :index
-      #redirect_to item_review_path(comment.review.item_id, comment.review_id)
+    else
+      flash[:alert] = "削除に失敗しました"
+      render :index
     end
+    flash.discard
   end
 
   private
