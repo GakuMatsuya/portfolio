@@ -1,28 +1,31 @@
 class Public::CommentsController < Public::ApplicationController
 
   def create
-    review = Review.find(params[:comment][:review_id])
-    comment = Comment.new(comment_params)
-    comment.user_id = current_user.id
-    comment.review_id = review.id
-    comment.text = params[:comment][:text]
-    if comment.save
+    @review = Review.find(params[:comment][:review_id])
+    @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
+    @comment.review_id = @review.id
+    @comment.text = params[:comment][:text]
+    @comments = @review.comments
+    if @comment.save
       flash[:notice] = "コメントしました"
-      redirect_to item_review_path(review.item_id, review)
+      render :index
     else
-      flash[:alert] = "コメントに失敗しました"
-      redirect_to item_review_path(review.item_id, review)
+
     end
   end
 
   def destroy
-    comment = Comment.find(params[:id])
-    if comment.destroy
+    @review = Review.find(params[:review_id])
+    @comment = Comment.find(params[:id])
+    @comments = @review.comments
+    if @comment.destroy
       flash[:notice] = "コメントを削除しました"
-      redirect_to item_review_path(comment.review.item_id, comment.review_id)
-    else
-      flash[:alert] = "削除に失敗しました"
-      redirect_to item_review_path(comment.review.item_id, comment.review_id)
+      render :index
+   # else
+  #    flash[:alert] = "削除に失敗しました"
+   #   render :index
+      #redirect_to item_review_path(comment.review.item_id, comment.review_id)
     end
   end
 

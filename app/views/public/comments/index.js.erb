@@ -1,0 +1,7 @@
+$("#comments_area").html("<%= j(render 'public/comments/index', comments: @comments, review: @review) %>");
+
+<%#コメント送信後、入力フォームを空に%>
+$("textarea").val("");
+
+<%#flashメッセージの%>
+$(".flash").html("<%= j(render("layouts/flash")) %>");
