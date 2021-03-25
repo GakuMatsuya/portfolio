@@ -7,6 +7,7 @@ class Public::LikesController < ApplicationController
     if  like.save
       flash[:notice] = "いいねしました"
     end
+    #画面更新でflashメッセージを非表示に
     flash.discard
   end
 
