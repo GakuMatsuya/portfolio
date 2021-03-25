@@ -29,7 +29,7 @@ class Public::CommentsController < Public::ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:text)
+    params.require(:comment).permit(:text, :item_id, :review_id, :user_id)
   end
 
 end
