@@ -6,7 +6,7 @@ class Public::CommentsController < Public::ApplicationController
     @comment.user_id = current_user.id
     @comment.review_id = @review.id
     @comment.text = params[:comment][:text]
-    @comments = @review.comments
+    @comments = @review.comments.includes([:user])
     if @comment.save
       flash[:notice] = "コメントしました"
       render :index
@@ -20,7 +20,7 @@ class Public::CommentsController < Public::ApplicationController
   def destroy
     @review = Review.find(params[:review_id])
     @comment = Comment.find(params[:id])
-    @comments = @review.comments
+    @comments = @review.comments.includes([:user])
     if @comment.destroy
       flash[:notice] = "コメントを削除しました"
       render :index
