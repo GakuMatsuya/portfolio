@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   #urlを設定
   devise_for :users, path: '', controllers: {
     sessions: "public/sessions/sessions",
-    registrations: "public/sessions/registrations"
+    registrations: "public/sessions/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"
   }
 
   devise_for :admin, controllers: {
