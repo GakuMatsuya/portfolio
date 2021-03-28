@@ -311,4 +311,7 @@ Devise.setup do |config|
 
   config.omniauth :google_oauth2,ENV['GOOGLE_CLIENT_ID'],ENV['GOOGLE_CLIENT_SECRET'],
     scope: 'email',redirect_uri: "https://57f79bcabcf14cde8378dd1c2290be6d.vfs.cloud9.ap-northeast-1.amazonaws.com/auth/google_oauth2/callback"
+
+  config.omniauth :twitter, ENV['TWITTER_API_KEY'],ENV['TWITTER_API_SECRET'],
+    scope: 'email',redirect_uri: "https://57f79bcabcf14cde8378dd1c2290be6d.vfs.cloud9.ap-northeast-1.amazonaws.com/auth/twitter/callback"
 end

@@ -57,16 +57,10 @@ class User < ApplicationRecord
 
   #認証情報のemailがDBにあれば最初のユーザーを返す。なければ作成
   def self.from_omniauth(auth)
-    user = User.where(email: auth.info.email).first
-
-    unless user
-      user = User.create(name: auth.info.name,
-                         provider: auth.provider,
-                         uid: auth.uid,
-                         email: auth.info.email,
-                         token: auth.credentials.token,
-                         password: Devise.friendly_token[0,20])
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    user.email = auth.info.email
+    user.password = Devise.friendly_token[0,20]
+    user.name = auth.info.name
     end
-    user
   end
 end
