@@ -37,7 +37,26 @@ describe "ユーザーログイン前のテスト" do
         expect(current_path).to eq "/users/" + User.last.id.to_s
       end
     end
+
+    context "Google連携でサインアップする" do
+      before do
+        OmniAuth.config.mock_auth[:google_oauth2] = nil
+        Rails.application.env_config['omniauth.auth'] = google_mock
+        visit new_user_session_path
+      end
+      it "正しく新規登録される" do
+        expect { click_link "Googleアカウントでログイン" }.to change(User.all, :count).by(1)
+      end
+      it "すでに連携されたユーザーがサインアップしようとするとユーザーは増えない" do
+        click_link "Googleアカウントでログイン"
+        click_link "ログアウト"
+        visit new_user_session_path
+        expect { click_link "Googleアカウントでログイン" }.not_to change(User, :count)
+      end
+    end
   end
+
+
 
   describe "ユーザーログイン" do
     let(:user) { FactoryBot.create(:user) }
