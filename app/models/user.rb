@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[google_oauth2]
+         :omniauthable             #omniauthを有効化
   attachment :profile_image
 
   enum is_active:{
@@ -55,11 +55,18 @@ class User < ApplicationRecord
     super && (self.is_active == "effectiveness")
   end
 
+  #認証情報のemailがDBにあれば最初のユーザーを返す。なければ作成
+  def self.from_omniauth(auth)
+    user = User.where(email: auth.info.email).first
 
-  def self.form_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
+    unless user
+      user = User.create(name: auth.info.name,
+                         provider: auth.provider,
+                         uid: auth.uid,
+                         email: auth.info.email,
+                         token: auth.credentials.token,
+                         password: Devise.friendly_token[0,20])
     end
+    user
   end
 end
