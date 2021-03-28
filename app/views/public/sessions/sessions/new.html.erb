@@ -19,7 +19,9 @@
       <%= f.submit "ログイン", class: "btn btn-primary offset-2" %>
     </div>
   <% end %>
-
+  
+  <%= link_to "Googleアカウントでログイン", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-danger text-white mt-5 offset-2 " %>
+  
   <div class="row offset-4">
     <div class="mt-5"><h6>登録がお済みでない方</h6></div>
   </div>
