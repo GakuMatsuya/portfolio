@@ -6,7 +6,11 @@ RSpec.describe "Relationshipモデルのテスト", type: :model do
     let(:other_user) { FactoryBot.create(:user) }
     let(:relationship) { user.relationship.build(followed_id: other_user.id) }
 
-
+    context "実際に保存する" do
+      it "有効な値の場合保存されるか" do
+        expect(FactoryBot.build(:relationship, following: user, follower: other_user)).to be_valid
+      end
+    end
 
     context "空白のバリデーションチェック" do
       it "follower_idが空白の場合にバリデーションチェックされるか" do
