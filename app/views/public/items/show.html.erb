@@ -70,6 +70,7 @@
 
 <script>
   <% @reviews.each do |review| %>
+  $(".rate<%= review.id %>").empty();
   $(".rate<%= review.id %>").raty({
     readOnly: true,
     score: function() {

@@ -1,5 +1,6 @@
 <%#class=average-review-ratingに対して発火。平均を%>
 <script>
+  $(".average<%= item.id %>").empty();
   $(".average<%= item.id %>").raty({
     readOnly: true,
     starOff: "<%= asset_path('star-off.png') %>",

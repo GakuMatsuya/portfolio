@@ -22,14 +22,15 @@
 
 <%#編集する投稿のrateを星表示。部分テンプレートにしたい%>
 <script>
-    $(".rate<%= @review.id %>").raty({
-    half: true,
-    score: function() {
-      return $(this).attr('data-score');
-    },
-    starOff: "<%= asset_path('star-off.png') %>",
-    starOn: "<%= asset_path('star-on.png') %>",
-    starHalf: "<%= asset_path('star-half.png') %>",
-    scoreName: "review[rate]"
+  $(".rate<%= @review.id %>").empty();
+  $(".rate<%= @review.id %>").raty({
+  half: true,
+  score: function() {
+    return $(this).attr('data-score');
+  },
+  starOff: "<%= asset_path('star-off.png') %>",
+  starOn: "<%= asset_path('star-on.png') %>",
+  starHalf: "<%= asset_path('star-half.png') %>",
+  scoreName: "review[rate]"
   });
   </script>

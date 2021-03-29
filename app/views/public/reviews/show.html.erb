@@ -25,16 +25,14 @@
   <%#コメント一覧%>
   <div id="comments_area">
     <%= render "public/comments/index", comments: @comments, review: @review %>
-  </div>  
+  </div>
 
   <%#コメント投稿フォーム%>
   <%= render "public/comments/form", comment: @comment, review: @review %>
 
-
-
-<%#レビュー詳細に対し発火。切り出せるかは検討%>
 <script>
-    $(".rate<%= @review.id %>").raty({
+  $(".rate<%= @review.id %>").empty();
+  $(".rate<%= @review.id %>").raty({
     readOnly: true,
     score: function() {
       return $(this).attr('data-score');
@@ -43,4 +41,4 @@
     starOn: "<%= asset_path('star-on.png') %>",
     starHalf: "<%= asset_path('star-half.png') %>"
   });
-  </script>
+</script>
