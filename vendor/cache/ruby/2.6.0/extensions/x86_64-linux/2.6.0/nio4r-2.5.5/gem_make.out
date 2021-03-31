@@ -1,5 +1,5 @@
 current directory: /home/ec2-user/environment/DORIBA/vendor/cache/ruby/2.6.0/gems/nio4r-2.5.5/ext/nio4r
-/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210330-25717-18i3lis.rb extconf.rb
+/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210330-3052-15lc2d5.rb extconf.rb
 checking for unistd.h... yes
 checking for linux/aio_abi.h... yes
 checking for linux/io_uring.h... no
@@ -91,4 +91,4 @@ linking shared-object nio4r_ext.so
 
 current directory: /home/ec2-user/environment/DORIBA/vendor/cache/ruby/2.6.0/gems/nio4r-2.5.5/ext/nio4r
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20210330-25717-14noyh9
+/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20210330-3052-yhbgzh
