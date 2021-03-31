@@ -1,5 +1,5 @@
 current directory: /home/ec2-user/environment/DORIBA/vendor/cache/ruby/2.6.0/gems/msgpack-1.4.2/ext/msgpack
-/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210330-3052-yfdpye.rb extconf.rb
+/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210331-8660-1ggbrz9.rb extconf.rb
 checking for ruby/st.h... yes
 checking for st.h... yes
 checking for rb_str_replace() in ruby.h... yes
@@ -54,4 +54,4 @@ linking shared-object msgpack/msgpack.so
 
 current directory: /home/ec2-user/environment/DORIBA/vendor/cache/ruby/2.6.0/gems/msgpack-1.4.2/ext/msgpack
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 msgpack.so ./.gem.20210330-3052-v3csot/msgpack
+/usr/bin/install -c -m 0755 msgpack.so ./.gem.20210331-8660-1jilvnr/msgpack

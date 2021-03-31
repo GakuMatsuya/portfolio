@@ -10,7 +10,7 @@ ab790836968cbe8014a98417c6dfc027413b1173 refs/heads/drv-improve-reset-token
 99105903c51eba0971afe0d5e59aa0f697bd3f4a refs/heads/gh-pages
 c116542c2899a48b3548787ed41025937c499674 refs/heads/let-unsafe-redirect
 b68b4002356a1838276632857d2ed6c3f6c5196d refs/heads/lm-jruby
-ef9a2f410413b02b5234d80a73b42e296ebcc863 refs/heads/master
+e8e0c275999dd98150197cab03acb5509cb16b6a refs/heads/master
 6f9a7361151bb36da321f4934e5812bce1b4ddc9 refs/heads/mf-check-for-devise-parent-mailer
 f78eed69e9e5f2358d4b1f3e5d2f50bf05750651 refs/heads/mf-issue-5140
 b998837592ed56f78a7831b655fae6268c57501e refs/heads/test-mongoid

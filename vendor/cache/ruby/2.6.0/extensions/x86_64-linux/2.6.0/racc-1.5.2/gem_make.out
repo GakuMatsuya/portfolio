@@ -1,5 +1,5 @@
 current directory: /home/ec2-user/environment/DORIBA/vendor/cache/ruby/2.6.0/gems/racc-1.5.2/ext/racc/cparse
-/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210330-3052-ftmv4n.rb extconf.rb
+/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210331-8660-etfxfr.rb extconf.rb
 checking for rb_ary_subseq()... yes
 creating Makefile
 
@@ -13,4 +13,4 @@ linking shared-object racc/cparse.so
 
 current directory: /home/ec2-user/environment/DORIBA/vendor/cache/ruby/2.6.0/gems/racc-1.5.2/ext/racc/cparse
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 cparse.so ./.gem.20210330-3052-1ks673t/racc
+/usr/bin/install -c -m 0755 cparse.so ./.gem.20210331-8660-sjkot7/racc

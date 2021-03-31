@@ -1,5 +1,5 @@
 current directory: /home/ec2-user/environment/DORIBA/vendor/cache/ruby/2.6.0/gems/sassc-2.4.0/ext
-/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210330-3052-1e9hqnv.rb extconf.rb
+/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210331-8660-g82s7g.rb extconf.rb
 creating Makefile
 
 current directory: /home/ec2-user/environment/DORIBA/vendor/cache/ruby/2.6.0/gems/sassc-2.4.0/ext
@@ -77,4 +77,4 @@ linking shared-object sassc/libsass.so
 
 current directory: /home/ec2-user/environment/DORIBA/vendor/cache/ruby/2.6.0/gems/sassc-2.4.0/ext
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 libsass.so ./.gem.20210330-3052-5e4zo0/sassc
+/usr/bin/install -c -m 0755 libsass.so ./.gem.20210331-8660-fmeecl/sassc

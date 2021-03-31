@@ -1,5 +1,5 @@
 current directory: /home/ec2-user/environment/DORIBA/vendor/cache/ruby/2.6.0/gems/websocket-driver-0.7.3/ext/websocket-driver
-/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210330-3052-3mgzaw.rb extconf.rb
+/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210331-8660-mvrrjo.rb extconf.rb
 creating Makefile
 
 current directory: /home/ec2-user/environment/DORIBA/vendor/cache/ruby/2.6.0/gems/websocket-driver-0.7.3/ext/websocket-driver
@@ -12,4 +12,4 @@ linking shared-object websocket_mask.so
 
 current directory: /home/ec2-user/environment/DORIBA/vendor/cache/ruby/2.6.0/gems/websocket-driver-0.7.3/ext/websocket-driver
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20210330-3052-1fjywfl
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20210331-8660-t5sd07
