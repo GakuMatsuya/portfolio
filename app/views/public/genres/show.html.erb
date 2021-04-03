@@ -1,7 +1,7 @@
 <div class="container">
-  <h2 class="title offset-1 mt-5">All drinks</h2>
-  <%= render "public/items/search_form" %>
-  
+  <h2 class="title offset-1 mt-5"><%= @genre.name %></h2>
+  <%= render "public/genres/search_form" %>
+
   <% @items.each do |item| %>
     <div class="card mb-3 mt-5 offset-1" style="max-width: 60rem;">
       <div class="row card-body">
@@ -23,11 +23,11 @@
           </div>
 
           <div class="row mt-3">
-            <div class="col-3"><p>口コミ<%= item.count %>件</p></div>
-            <% if item.average != nil %>
-              <div class="average<%= item.id %>" data-score="<%= item.average.round(1) %>"></div>
+            <div class="col-3"><p>口コミ<%#= item.count %>件</p></div>
+            <% if true# item.average != nil %>
+              <div class="average<%= item.id %>" data-score="<%#= item.average.round(1) %>"></div>
               <%= render 'public/reviews/rate', item: item %>
-              <div class="ml-4" style="color: gold; font-size: 20px; font-weight: bold; "><%= item.average.round(1) %>点</div>
+              <div class="ml-4" style="color: gold; font-size: 20px; font-weight: bold; "><%#= item.average.round(1) %>点</div>
             <% else %>
               <div class="average<%= item.id %>" data-score="0"></div>
               <%= render 'public/reviews/rate', item: item %>
@@ -38,7 +38,7 @@
       </div>
     </div>
   <% end %>
-  
+
   <div class="mt-5 offset-5">
     <%= paginate @items %>
   </div>
