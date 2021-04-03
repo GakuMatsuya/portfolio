@@ -1,6 +1,10 @@
 class Public::UsersController < Public::ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :timeline, :unsubscribe, :withdraw, :following, :followers, :likes]
 
+  def index
+    @users = User.all
+  end
+  
   def show
     @user = User.find(params[:id])
     @reviews = Review.where(user_id: @user.id).includes(:item).page(params[:page]).per(5)
