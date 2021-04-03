@@ -36,7 +36,7 @@ Rails.application.routes.draw do
       get :unsubscribe, on: :member
       patch :withdraw, on: :member
     end
-    
+
     #collectionでidを伴わないパスを追加
     resources :items, only: [:show, :index] do
       collection do
@@ -47,7 +47,7 @@ Rails.application.routes.draw do
       end
     end
     
-    resources :genres, params: :id, only:[:index] do
+    resources :genres, only:[:show] do
       get "search"
     end
 
