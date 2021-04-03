@@ -310,8 +310,8 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   config.omniauth :google_oauth2,ENV['GOOGLE_CLIENT_ID'],ENV['GOOGLE_CLIENT_SECRET'],
-    scope: 'email',redirect_uri: "https://f7d11d3b2d9a4b2882d0cdac96a8f7ab.vfs.cloud9.ap-northeast-1.amazonaws.com/auth/google_oauth2/callback"
+    scope: 'email',redirect_uri: "https:/doriba.net/auth/google_oauth2/callback"
 
   config.omniauth :twitter, ENV['TWITTER_API_KEY'],ENV['TWITTER_API_SECRET'],
-    scope: 'email',redirect_uri: "https://f7d11d3b2d9a4b2882d0cdac96a8f7ab.vfs.cloud9.ap-northeast-1.amazonaws.com/auth/twitter/callback"
+    scope: 'email',redirect_uri: "https:/doriba.net/auth/twitter/callback"
 end
