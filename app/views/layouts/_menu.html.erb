@@ -1,11 +1,11 @@
 <%#メニュー表示内容%>
 <nav id="menu">
   <ul>
-    <li><a href="/genres?id=1">BEER</a></li>
-    <li><a href="/genres?id=2">WHISKY/WHISKEY</a></li>
-    <li><a href="/genres?id=3">WINE</a></li>
-    <li><a href="/genres?id=4">SAKE</a></li>
-    <li><a href="/genres?id=5">LIQURE</a></li>
+    <li><a href="/genres/1">BEER</a></li>
+    <li><a href="/genres/2">WHISKY/WHISKEY</a></li>
+    <li><a href="/genres/3">WINE</a></li>
+    <li><a href="/genres/4">SAKE</a></li>
+    <li><a href="/genres/5">LIQURE</a></li>
     <li><a href="/items">ALL drinks</a></li>
   </ul>
 </nav>
@@ -26,7 +26,7 @@ function hamburger() {
   document.getElementById('line2').classList.toggle('line_2');
   document.getElementById('line3').classList.toggle('line_3');
   document.getElementById('menu').classList.toggle('in');
-  
+
 /*elementsにbodyタグを代入、操作したい要素のインデックスを指定し、classを付与*/
   let elements = document.getElementsByTagName('body');
   elements[0].classList.toggle('noscroll');
