@@ -18,10 +18,10 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all.includes(:genre)
+    @items = Item.all.includes(:genre).page(params[:page]).per(10)
   end
-  
-  
+
+
   def search
     @items = @q.result
   end
