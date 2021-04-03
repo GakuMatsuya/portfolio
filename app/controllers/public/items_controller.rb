@@ -13,9 +13,9 @@ class Public::ItemsController < Public::ApplicationController
     end
   end
 
-  #itemテーブルにreviewテーブルを
+  #itemテーブルにreviewテーブルを結合
   def index
-    @items = Item.all.left_joins(:reviews).group(:id).select("items.*, count(reviews.item_id) as count, avg(reviews.rate) as average")
+    @items = Item.all.left_joins(:reviews).group(:id).select('items.*, count(reviews.item_id) as count, avg(reviews.rate) as average').page(params[:page]).per(5)
   end
 
   def search
