@@ -11,17 +11,17 @@
         <div class="col-8"><%= @item.name %></div>
       </div>
 
-      <div class="row">
+      <div class="row mt-3">
         <div class="col-2"><p>商品説明</p></div>
         <div class="col-8"><%= @item.introduction %></div>
       </div>
 
-      <div class="row">
+      <div class="row mt-3">
         <div class="col-2"><p>ジャンル</p></div>
         <div class="col-8"><%= @item.genre.name %></div>
       </div>
 
-      <div class="row">
+      <div class="row mt-3">
         <div class="col-2"><p>口コミ<%= @reviews.total_count %>件</p></div>
         <div class="average<%= @item.id %>" data-score="<%= @average_review %>">
           <%= render 'public/reviews/rate', item: @item %>
