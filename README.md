@@ -37,3 +37,5 @@ https://docs.google.com/spreadsheets/d/1VTCkJRCrAKke4lXofBw9e-MHoFKCk6oYUf5gB103
 - O-DAN <https://o-dan.net/ja/>
 - morguefile <https://morguefile.com/>
 - ICOON MONO <https://icooon-mono.com/>
+- Font Awesome <https://fontawesome.com/>
+- illust AC <https://www.ac-illust.com/>
