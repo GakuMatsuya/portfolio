@@ -2,9 +2,10 @@
 <h6 type="button" class="offset-8" data-toggle="collapse" data-target="#collapseExample" style="color: blue;">さらに表示</h6>
 
 <%#最新のコメント2件を表示%>
-<div class="offset-4 mt-5">
+<div class="offset-3 mt-5">
   <% comments.first(2).each do |comment| %>
-    <div class="row mt-5">
+  <div class="card mt-5" style="max-width: 40rem;">
+    <div class="row mt-5 offset-1">
       <%= link_to user_path(comment.user_id) do %>
         <%= attachment_image_tag comment.user, :profile_image, format: "jpeg", size: "60x60", fallback: "no_image.jpg" %>
         <%= comment.user.name %>
@@ -16,14 +17,16 @@
         <% end %>
       </div>
     </div>
-    <div class="col-5 mb-4 mt-4"><%= comment.text %></div>
+    <div class="col-10 mb-4 mt-4 offset-1"><%= comment.text %></div>
+  </div>
   <% end %>
 </div>
 
 <%#2件目以降のコメントを表示%>
-<div class="offset-4 mt-5 collapse" id="collapseExample">
+<div class="offset-3 collapse" id="collapseExample">
   <% comments.offset(2).each do |comment| %>
-    <div class="row mt-5">
+  <div class="card mt-5" style="max-width: 40rem;">
+    <div class="row mt-5 offset-1">
       <%= link_to user_path(comment.user_id) do %>
         <%= attachment_image_tag comment.user, :profile_image, format: "jpeg", size: "60x60", fallback: "no_image.jpg" %>
         <%= comment.user.name %>
@@ -35,6 +38,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-5 mb-4 mt-4"><%= comment.text %></div>
+    <div class="col-10 mb-4 mt-4 offset-1"><%= comment.text %></div>
+  </div>
   <% end %>
 </div>
