@@ -171,30 +171,6 @@ describe "仕上げのテスト" do
       end
     end
 
-    context "他人のフォロワー一覧画面のテスト" do
-      it "ユーザー詳細画面にリダイレクトされ、エラーメッセージが表示される" do
-        visit followers_user_path(other_user)
-        expect(current_path).to eq "/users/" + other_user.id.to_s
-        expect(page).to have_content "権限がありません"
-      end
-    end
-
-    context "他人のフォローユーザー一覧画面のテスト" do
-      it "ユーザー詳細画面にリダイレクトされ、エラーメッセージが表示される" do
-        visit following_user_path(other_user)
-        expect(current_path).to eq "/users/" + other_user.id.to_s
-        expect(page).to have_content "権限がありません"
-      end
-    end
-
-    context "他人のいいね一覧画面のテスト" do
-      it "ユーザー詳細画面にリダイレクトされ、エラーメッセージが表示される" do
-        visit likes_user_path(other_user)
-        expect(current_path).to eq "/users/" + other_user.id.to_s
-        expect(page).to have_content "権限がありません"
-      end
-    end
-
     context "他人の退会画面のテスト" do
       it "ユーザー詳細画面にリダイレクトされ、エラーメッセージが表示される" do
         visit unsubscribe_user_path(other_user)
