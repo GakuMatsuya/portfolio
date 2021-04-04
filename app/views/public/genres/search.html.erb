@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="mt-5">検索結果</h2>
   <%= render "public/genres/search_form" %>
-  <%= link_to "一覧画面に戻る", ("/genres?id=#{@genre.id}"), class: "offset-10 text-primary" %>
+  <%= link_to "一覧画面に戻る", genre_path(@genre.id), class: "offset-10 text-primary" %>
 
   <% if @items.present? %>
     <% @items.each do |item| %>
