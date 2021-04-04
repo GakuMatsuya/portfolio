@@ -9,7 +9,7 @@
   </div>
   <div class="rate<%= @review.id %> mt-2 offset-3" data-score="<%= @review.rate %>"></div>
   <div class="row mt-5 offset-3">
-    <%= f.text_area :text, size: "40x" %>
+    <%= f.text_area :text, size: "40x10" %>
   </div>
   <div class="row mt-5 offset-3">
     <%= f.submit "変更する", class: "btn btn-success offset-1" %>
