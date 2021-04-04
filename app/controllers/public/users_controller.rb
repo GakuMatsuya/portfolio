@@ -1,5 +1,5 @@
 class Public::UsersController < Public::ApplicationController
-  before_action :ensure_correct_user, only: [:edit, :update, :timeline, :unsubscribe, :withdraw, :following, :followers, :likes]
+  before_action :ensure_correct_user, only: [:edit, :update, :timeline, :unsubscribe, :withdraw]
 
   def index
     @users = User.all
