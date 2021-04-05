@@ -25,7 +25,7 @@
   </div>
 
   <div class="row offset-3 mt-5">
-    <%= f.submit "新規登録", class: "btn btn-success offset-3" %>
+    <%= f.submit "新規登録", data: {confirm: "20歳以上ですか? 本サイトは酒類を扱うため、20歳未満の方のご利用は禁止しております。"}, class: "btn btn-success offset-3" %>
   </div>
 <% end %>
 
