@@ -20,8 +20,8 @@
     </div>
   <% end %>
 
-  <%= link_to " Googleアカウントでログイン", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-danger text-white mt-5 offset-2 fab fa-google" %>
-  <%= link_to " twitterでログイン", user_twitter_omniauth_authorize_path, method: :post, class: "btn btn-info text-white mt-5 offset-2 fab fa-twitter" %>
+  <%= link_to " Googleアカウントでログイン", user_google_oauth2_omniauth_authorize_path, method: :post, data: {confirm: "20歳以上ですか? 本サイトは酒類を扱うため、20歳未満の方のご利用は禁止しております。"}, class: "btn btn-danger text-white mt-5 offset-2 fab fa-google" %>
+  <%= link_to " twitterでログイン", user_twitter_omniauth_authorize_path, method: :post, data: {confirm: "20歳以上ですか? 本サイトは酒類を扱うため、20歳未満の方のご利用は禁止しております。"}, class: "btn btn-info text-white mt-5 offset-2 fab fa-twitter" %>
 
   <div class="row offset-5">
     <div class="mt-5"><h6>登録がお済みでない方</h6></div>
