@@ -35,7 +35,7 @@ describe "仕上げのテスト" do
       fill_in "user[email]", with: user.email
       fill_in "user[password]", with: user.password
       click_button "ログイン"
-      logout_link = find_all("a")[3].native.inner_text
+      logout_link = find_all("a")[4].native.inner_text
       click_link logout_link
       is_expected.to have_content "ログアウトしました"
     end
@@ -130,7 +130,7 @@ describe "仕上げのテスト" do
       is_expected.to eq "/sign_in"
     end
     it "ジャンル別商品一覧画面" do
-      visit "genres?id=1"
+      visit genre_path(genre)
       is_expected.to eq "/sign_in"
     end
     it "商品詳細画面" do

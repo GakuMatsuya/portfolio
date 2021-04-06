@@ -117,7 +117,7 @@ describe "ユーザーログイン前のテスト" do
       click_button "ログイン"
 
       # 3番目のリンクを取得し、クリック
-      logout_link = find_all("a")[3].native.inner_text
+      logout_link = find_all("a")[4].native.inner_text
       click_link logout_link
     end
 
