@@ -12,7 +12,7 @@
 
 ### テーマを選んだ理由
 新型コロナによる自粛生活で、以前のように出かけたり外で飲食をすることが難しい日々が長く続いています。  
-そんな中、美味しいお酒で家での時間を少しでも楽しく、充実して過ごせるようこのテーマを選びました。  
+その中で、美味しいお酒で家で過ごす時間を少しでも楽しく、充実して過ごせるようこのテーマを選びました。  
 また、飲食店での需要急減の影響を受けた酒類メーカーや、販売業者の売上の一助にもなればと考えています。
 
 ### ターゲットユーザ
@@ -31,7 +31,6 @@ https://docs.google.com/spreadsheets/d/1VTCkJRCrAKke4lXofBw9e-MHoFKCk6oYUf5gB103
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
-- 仮想環境：Vagrant,VirtualBox
 
 ## 使用素材
 - O-DAN <https://o-dan.net/ja/>
