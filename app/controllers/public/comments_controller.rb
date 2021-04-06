@@ -1,5 +1,4 @@
 class Public::CommentsController < Public::ApplicationController
-
   def create
     @review = Review.find(params[:comment][:review_id])
     @comment = Comment.new(comment_params)
@@ -36,5 +35,4 @@ class Public::CommentsController < Public::ApplicationController
   def comment_params
     params.require(:comment).permit(:text, :item_id, :review_id, :user_id)
   end
-
 end

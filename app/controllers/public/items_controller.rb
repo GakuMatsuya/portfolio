@@ -5,7 +5,7 @@ class Public::ItemsController < Public::ApplicationController
     @item = Item.find(params[:id])
     @reviews = @item.reviews.includes(:user).page(params[:page]).per(5)
 
-    #レビューがあれば平均を、なければ0を
+    # レビューがあれば平均を、なければ0を
     if @item.reviews.blank?
       @average_review = 0
     else
@@ -13,7 +13,7 @@ class Public::ItemsController < Public::ApplicationController
     end
   end
 
-  #itemテーブルにreviewテーブルを結合
+  # itemテーブルにreviewテーブルを結合
   def index
     @items = Item.all.left_joins(:reviews).group(:id).select('items.*, count(reviews.item_id) as count, avg(reviews.rate) as average').page(params[:page]).per(5)
   end
@@ -24,9 +24,8 @@ class Public::ItemsController < Public::ApplicationController
 
   private
 
-  #パラメータを元にテーブルからデータを検索
+  # パラメータを元にテーブルからデータを検索
   def set_q
     @q = Item.all.left_joins(:reviews).group(:id).select("items.*, count(reviews.item_id) as count, avg(reviews.rate) as average").ransack(params[:q])
   end
-
 end

@@ -14,7 +14,6 @@ describe "ユーザログイン後のテスト" do
     click_button "ログイン"
   end
 
-
   describe "新規投稿のテスト" do
     before do
       visit new_item_review_path(item)
@@ -22,7 +21,7 @@ describe "ユーザログイン後のテスト" do
 
     context "投稿成功のテスト" do
       before do
-        fill_in "review[text]", with: Faker::Lorem.characters(number:50)
+        fill_in "review[text]", with: Faker::Lorem.characters(number: 50)
         find("#star input", visible: false).set("1")
       end
 

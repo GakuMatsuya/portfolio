@@ -18,7 +18,7 @@ class Public::ReviewsController < Public::ApplicationController
     end
   end
 
-  #reviewはitemの情報も持っているため、itemに紐付いたreviewに紐付いたコメントが作成できる
+  # reviewはitemの情報も持っているため、itemに紐付いたreviewに紐付いたコメントが作成できる
   def show
     @review = Review.find(params[:id])
     @comment = Comment.new(review_id: @review.id)
@@ -53,7 +53,7 @@ class Public::ReviewsController < Public::ApplicationController
     params.require(:review).permit(:rate, :text, :user_id, :item_id)
   end
 
-  #他ユーザーの情報編集を制限
+  # 他ユーザーの情報編集を制限
   def ensure_correct_user
     review = Review.find(params[:id])
     @user = review.user

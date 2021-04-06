@@ -9,13 +9,13 @@ describe "仕上げのテスト" do
   let!(:genre) { create(:genre) }
 
   describe "サクセスメッセージのテスト" do
-    #pageがテスト対象
+    # pageがテスト対象
     subject { page }
 
     it "ユーザー新規登録成功時" do
       visit new_user_registration_path
       fill_in "user[name]", with: Faker::Name.name
-      fill_in "user[email]", with: "a" + user.email   #user,other_userと違う値にするため
+      fill_in "user[email]", with: "a" + user.email # user,other_userと違う値にするため
       fill_in "user[password]", with: "password"
       fill_in "user[password_confirmation]", with: "password"
       click_button "新規登録"
@@ -69,7 +69,7 @@ describe "仕上げのテスト" do
         visit new_user_registration_path
         @password = Faker::Lorem.characters(number: 5)
         fill_in "user[name]", with: Faker::Name.name
-        fill_in "user[email]", with: "a" + user.email  #user,other_userと違う値にするため
+        fill_in "user[email]", with: "a" + user.email # user,other_userと違う値にするため
         fill_in "user[password]", with: @password
         fill_in "user[password_confirmation]", with: @password
       end
@@ -86,7 +86,7 @@ describe "仕上げのテスト" do
   end
 
   describe "未ログイン時のアクセス制限のテスト: アクセスできず、ログイン画面に遷移" do
-    #current_pathがテスト対象
+    # current_pathがテスト対象
     subject { current_path }
 
     it "ユーザー詳細画面" do

@@ -1,5 +1,4 @@
 class Public::RelationshipsController < Public::ApplicationController
-
   def create
     @user = User.find(params[:user][:following_id])
     if current_user.follow(@user)
@@ -7,7 +6,7 @@ class Public::RelationshipsController < Public::ApplicationController
     else
       flash[:alert] = "フォローに失敗しました"
     end
-    #リロード後、メッセージが残らないようにする
+    # リロード後、メッセージが残らないようにする
     flash.discard
   end
 
@@ -18,8 +17,7 @@ class Public::RelationshipsController < Public::ApplicationController
     else
       flash[:alert] = "フォロー解除に失敗しました"
     end
-    #リロード後、メッセージが残らないようにする
+    # リロード後、メッセージが残らないようにする
     flash.discard
   end
-
 end

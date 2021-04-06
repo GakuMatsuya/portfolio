@@ -4,19 +4,19 @@ module OmniauthMacros
       provider: "google_oauth2",
       uid: "12345",
       info: {
-        name:  "mockuser",
-        email:  "mock@example.com"
+        name: "mockuser",
+        email: "mock@example.com",
       },
     })
   end
-  
+
   def twitter_mock
     OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
       provider: "twitter",
       uid: "12345",
       info: {
-        name:  "mockuser",
-        email:  "mock@example.com"
+        name: "mockuser",
+        email: "mock@example.com",
       },
     })
   end

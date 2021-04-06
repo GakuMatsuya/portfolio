@@ -44,6 +44,7 @@ describe "ユーザーログイン前のテスト" do
         Rails.application.env_config['omniauth.auth'] = google_mock
         visit new_user_session_path
       end
+
       it "正しく新規登録される" do
         expect { click_link "Googleアカウントでログイン" }.to change(User.all, :count).by(1)
       end
@@ -54,13 +55,14 @@ describe "ユーザーログイン前のテスト" do
         expect { click_link "Googleアカウントでログイン" }.not_to change(User, :count)
       end
     end
-    
+
     context "twitter連携でサインアップする" do
       before do
         OmniAuth.config.mock_auth[:twitter] = nil
         Rails.application.env_config['omniauth.auth'] = twitter_mock
         visit new_user_session_path
       end
+
       it "正しく新規登録される" do
         expect { click_link "twitterでログイン" }.to change(User.all, :count).by(1)
       end
@@ -71,11 +73,7 @@ describe "ユーザーログイン前のテスト" do
         expect { click_link "twitterでログイン" }.not_to change(User, :count)
       end
     end
-    
-    
   end
-
-
 
   describe "ユーザーログイン" do
     let(:user) { FactoryBot.create(:user) }
@@ -118,7 +116,7 @@ describe "ユーザーログイン前のテスト" do
       fill_in "user[password]", with: user.password
       click_button "ログイン"
 
-      #3番目のリンクを取得し、クリック
+      # 3番目のリンクを取得し、クリック
       logout_link = find_all("a")[3].native.inner_text
       click_link logout_link
     end

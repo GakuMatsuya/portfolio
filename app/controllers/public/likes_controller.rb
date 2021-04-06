@@ -1,13 +1,12 @@
 class Public::LikesController < ApplicationController
-
   def create
     @user = current_user
     @review = Review.find(params[:id])
     like = current_user.likes.build(review_id: params[:id])
-    if  like.save
+    if like.save
       flash[:notice] = "いいねしました"
     end
-    #画面更新でflashメッセージを非表示に
+    # 画面更新でflashメッセージを非表示に
     flash.discard
   end
 
@@ -20,5 +19,4 @@ class Public::LikesController < ApplicationController
     end
     flash.discard
   end
-
 end

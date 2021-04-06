@@ -6,7 +6,7 @@ RSpec.describe "Userモデルのテスト", type: :model do
       expect(FactoryBot.build(:user)).to be_valid
     end
   end
-  
+
   context "空白のバリデーションチェック" do
     it "nameが空白の場合にバリデーションチェックされ空白のエラーメッセージが返ってきているか" do
       user = User.new(name: "", email: "hogehoge@mail.com", encrypted_password: "hogehoge")
@@ -24,11 +24,12 @@ RSpec.describe "Userモデルのテスト", type: :model do
       expect(user.errors[:email]).to include("を入力してください")
     end
   end
-  
+
   context "一意性のバリデーションチェック" do
     before do
       @user = FactoryBot.build(:user)
     end
+
     it "同じemailは登録できない" do
       @user.save
       another_user = FactoryBot.build(:user)

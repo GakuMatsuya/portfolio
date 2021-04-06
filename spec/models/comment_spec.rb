@@ -6,7 +6,7 @@ RSpec.describe "Commentモデルのテスト", type: :model do
       expect(FactoryBot.build(:comment)).to be_valid
     end
   end
-  
+
   context "空白のバリデーションチェック" do
     it "textが空白の場合にバリデーションチェックされるか" do
       comment = Comment.new(text: "")

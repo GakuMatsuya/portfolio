@@ -4,7 +4,7 @@ class Public::UsersController < Public::ApplicationController
   def index
     @users = User.all
   end
-  
+
   def show
     @user = User.find(params[:id])
     @reviews = Review.where(user_id: @user.id).includes(:item).page(params[:page]).per(5)
@@ -52,7 +52,7 @@ class Public::UsersController < Public::ApplicationController
   def withdraw
     @user = current_user
     @user.update(user_params)
-    #ログアウトさせる
+    # ログアウトさせる
     reset_session
     redirect_to "/"
   end
@@ -63,7 +63,7 @@ class Public::UsersController < Public::ApplicationController
     params.require(:user).permit(:name, :introduction, :profile_image, :is_active)
   end
 
-  #他ユーザーの情報編集を制限
+  # 他ユーザーの情報編集を制限
   def ensure_correct_user
     @user = User.find(params[:id])
     if @user.id != current_user.id
@@ -71,5 +71,4 @@ class Public::UsersController < Public::ApplicationController
       redirect_to user_path(@user)
     end
   end
-
 end

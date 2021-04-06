@@ -18,7 +18,6 @@ RSpec.describe "Relationshipモデルのテスト", type: :model do
         expect(relationship).to be_invalid
       end
 
-
       it "following_idが空白の場合にバリデーションチェックされるか" do
         relationship = Relationship.new(follower_id: "1", following_id: "")
         expect(relationship).to be_invalid

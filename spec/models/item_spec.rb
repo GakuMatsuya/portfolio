@@ -6,7 +6,7 @@ RSpec.describe "Itemモデルのテスト", type: :model do
       expect(FactoryBot.build(:item)).to be_valid
     end
   end
-  
+
   context "空白のバリデーションチェック" do
     it "nameが空白の場合にバリデーションチェックされ空白のエラーメッセージが返ってきているか" do
       item = Item.new(name: "", genre_id: "1", image_id: "hoge", introduction: "hoge")

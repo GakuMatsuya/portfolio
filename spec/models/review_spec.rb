@@ -6,7 +6,7 @@ RSpec.describe "Reviewモデルのテスト", type: :model do
       expect(FactoryBot.build(:review)).to be_valid
     end
   end
-  
+
   context "空白のバリデーションチェック" do
     it "rateが空白の場合にバリデーションチェックされ空白のエラーメッセージが返ってきているか" do
       review = Review.new(item_id: "1", user_id: "1", rate: "", text: "hoge")

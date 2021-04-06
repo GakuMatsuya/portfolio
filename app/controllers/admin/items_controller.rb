@@ -21,7 +21,6 @@ class Admin::ItemsController < ApplicationController
     @items = Item.all.includes(:genre).page(params[:page]).per(10)
   end
 
-
   def search
     @items = @q.result
   end
@@ -50,9 +49,8 @@ class Admin::ItemsController < ApplicationController
     params.require(:item).permit(:image, :name, :introduction, :genre_id)
   end
 
-  #パラメータを元にテーブルからデータを検索し、@qに代入
+  # パラメータを元にテーブルからデータを検索し、@qに代入
   def set_q
     @q = Item.all.left_joins(:reviews).group(:id).select("items.*, count(reviews.item_id) as count, avg(reviews.rate) as average").ransack(params[:q])
   end
-
 end
