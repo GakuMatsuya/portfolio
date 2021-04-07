@@ -50,7 +50,7 @@ class Public::ReviewsController < Public::ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rate, :text, :user_id, :item_id)
+    params.require(:review).permit(:rate, :text, :user_id, :item_id, :tag_list)
   end
 
   # 他ユーザーの情報編集を制限

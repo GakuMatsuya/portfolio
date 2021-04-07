@@ -13,6 +13,12 @@
     <%= f.label :コメント, class: "mr-5" %>
     <%= f.text_area :text, size: "40x10", placeholder: "レビューを書いてみましょう!" %>
   </div>
+
+  <div class="row mt-5 offset-3">
+    <%= f.label :タグ付け, class: "mr-5" %>
+    <%= f.text_area :tag_list, size: "40x5", value: @review.tag_list.join(','), placeholder: "カンマで区切ると複数タグとして登録されます" %>
+  </div>
+
   <div class="row mt-5 offset-3">
   <%= f.submit "投稿する", class: "btn offset-2 btn-success" %>
   </div>

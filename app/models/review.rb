@@ -4,6 +4,8 @@ class Review < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
+  acts_as_taggable
+
   # レートを0.5以上5以下に設定
   validates :rate, numericality: {
     less_than_or_equal_to: 5,
