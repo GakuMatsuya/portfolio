@@ -49,8 +49,12 @@
         </div>
 
         <div class="rate<%= review.id %> mt-1 mb-3 offset-1" data-score="<%= review.rate %>"></div>
-        <div class="col-9 offset-1 mb-3"><%= review.text %></div>
-
+        <div class="col-9 offset-1 mb-3">
+          <%= review.text %>
+          <%= render "layouts/tag_list", review: review %>
+        </div>
+        
+        
         <div class="row offset-10">
           <div id="likes_buttons_<%= review.id %>"><%= render "public/likes/like", review: review %></div>
           <%= link_to "コメント", item_review_path(review.item_id, review), class: "mt-1 ml-4 far fa-comment" %>

@@ -19,6 +19,7 @@
             <p class="text-right"><%= l review.created_at %></p>
             <div class="rate<%= review.id %> mt- mb-3" data-score="<%= review.rate %>"></div>
             <%= review.text %>
+            <%= render "layouts/tag_list", review: review %>
           </div>
 
           <div class="row offset-10">
