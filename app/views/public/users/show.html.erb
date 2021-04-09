@@ -23,7 +23,9 @@
       </li>
       <li>
         <p class="ml-4">フォロワー</p>
-        <%= link_to "#{@user.followers.count}人", followers_user_path(@user.id), class: "nav-link ml-4" %>
+        <div id="follower_count_<%= @user.id %>">
+          <%= link_to "#{@user.followers.count}人", followers_user_path(@user.id), class: "nav-link ml-4" %>
+        </div>
       </li>
       <li>
         <p class="ml-4">いいね</p>

@@ -2,3 +2,6 @@ $("#follow_form").html("<%= j(render("public/relationships/follow")) %>");
 
 <%#flashメッセージを非同期で更新%>
 $(".flash").html("<%= j(render("layouts/flash")) %>");
+
+<%#フォロー解除後のフォロワー数を表示%>
+$("#follower_count_<%= @user.id %>").html('<%= link_to "#{@user.followers.count}人", followers_user_path(@user.id), class: "nav-link ml-4" %>');
