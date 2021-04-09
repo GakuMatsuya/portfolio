@@ -7,7 +7,7 @@ class Public::UsersController < Public::ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @reviews = Review.where(user_id: @user.id).includes(:item, :taggings).page(params[:page]).per(5)
+    @reviews = Review.where(user_id: @user.id).includes(:item, :tags).page(params[:page]).per(5)
   end
 
   def edit
@@ -36,13 +36,13 @@ class Public::UsersController < Public::ApplicationController
 
   def likes
     @user = User.find(params[:id])
-    @reviews = @user.liked_reviews.includes(:item, :user, :taggings).page(params[:page]).per(5)
+    @reviews = @user.liked_reviews.includes(:item, :user, :tags).page(params[:page]).per(5)
   end
 
   def timeline
     @user = User.find(current_user.id)
     @follow_users = @user.following
-    @reviews = Review.where(user_id: @follow_users).includes(:item, :user, :taggings).page(params[:page]).per(5)
+    @reviews = Review.where(user_id: @follow_users).includes(:item, :user, :tags).page(params[:page]).per(5)
   end
 
   def unsubscribe

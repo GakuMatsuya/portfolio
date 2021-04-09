@@ -1,7 +1,7 @@
 <div class="tags  mt-5">
   <i class="fas fa-tags"></i>
-  <% if review.tag_list.present? %>
-    <% review.tag_list.each do |tag| %>
+  <% if review.tags.present? %>
+    <% review.tags.each do |tag| %>
       #<%= tag %>
     <% end %>
   <% else %>
