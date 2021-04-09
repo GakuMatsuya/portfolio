@@ -8,10 +8,18 @@
     <%= f.hidden_field :rate %>
   </div>
   <div class="rate<%= @review.id %> mt-2 offset-3" data-score="<%= @review.rate %>"></div>
+
   <div class="row mt-5 offset-3">
+    <%= f.label :コメント, class: "mr-5" %>
     <%= f.text_area :text, size: "40x10" %>
   </div>
+
   <div class="row mt-5 offset-3">
+    <%= f.label :タグ付け, class: "mr-5" %>
+    <%= f.text_area :tag_list, size: "40x5", value: @review.tag_list.join('　') %>
+  </div>
+
+  <div class="row mt-5 offset-4">
     <%= f.submit "変更する", class: "btn btn-success offset-1" %>
     <% if @review.user_id == current_user.id %>
       <%= link_to "削除する", item_review_path(@review.item_id, @review.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger text-white ml-3" %>
