@@ -4,7 +4,6 @@ class Public::GenresController < Public::ApplicationController
   def show
     @genre = Genre.find(params[:id])
     @items = Item.count_and_average_reviews.all.where(genre_id: @genre.id).page(params[:page]).per(5)
-
   end
 
   def search
