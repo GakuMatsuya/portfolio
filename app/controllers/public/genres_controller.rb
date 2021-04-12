@@ -3,7 +3,8 @@ class Public::GenresController < Public::ApplicationController
 
   def show
     @genre = Genre.find(params[:id])
-    @items = Item.all.left_joins(:reviews).group(:id).select('items.*, count(reviews.item_id) as count, avg(reviews.rate) as average').where(genre_id: @genre.id).page(params[:page]).per(5)
+    @items = Item.count_and_average_reviews.all.where(genre_id: @genre.id).page(params[:page]).per(5)
+
   end
 
   def search
@@ -15,6 +16,6 @@ class Public::GenresController < Public::ApplicationController
 
   # パラメータを元にデータを検索、@qに格納
   def set_q
-    @q = Item.all.left_joins(:reviews).group(:id).select("items.*, count(reviews.item_id) as count, avg(reviews.rate) as average").ransack(params[:q])
+    @q = Item.count_and_average_reviews.all.ransack(params[:q])
   end
 end
