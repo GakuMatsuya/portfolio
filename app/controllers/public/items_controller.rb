@@ -7,9 +7,9 @@ class Public::ItemsController < Public::ApplicationController
     @average_review = @item.review_average
   end
 
-  # itemテーブルにreviewテーブルを結合
+  # 定義したメソッドを呼び出し
   def index
-    @items = Item.all.left_joins(:reviews).group(:id).select('items.*, count(reviews.item_id) as count, avg(reviews.rate) as average').page(params[:page]).per(5)
+    @items = Item.count_and_average_reviews.all.page(params[:page]).per(5)
   end
 
   def search
@@ -20,6 +20,6 @@ class Public::ItemsController < Public::ApplicationController
 
   # パラメータを元にテーブルからデータを検索
   def set_q
-    @q = Item.all.left_joins(:reviews).group(:id).select("items.*, count(reviews.item_id) as count, avg(reviews.rate) as average").ransack(params[:q])
+    @q = Item.count_and_average_reviews.all.ransack(params[:q])
   end
 end
