@@ -1,9 +1,9 @@
 inherit_from:
   - .rubocop_airbnb.yml
-  
+
 # 文字数上限
 LineLength:
-  Max: 190
+  Max: 115
 
 #解析しないファイル
 AllCops:
