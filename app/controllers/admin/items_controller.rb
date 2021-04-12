@@ -51,6 +51,6 @@ class Admin::ItemsController < ApplicationController
 
   # パラメータを元にテーブルからデータを検索し、@qに代入
   def set_q
-    @q = Item.all.left_joins(:reviews).group(:id).select("items.*, count(reviews.item_id) as count, avg(reviews.rate) as average").ransack(params[:q])
+    @q = Item.all.ransack(params[:q])
   end
 end
