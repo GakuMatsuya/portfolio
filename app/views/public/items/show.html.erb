@@ -35,6 +35,7 @@
     </div>
   </div>
 
+  <%#商品に対する%>
   <% if @reviews.present? %>
     <% @reviews.includes(:user).each do |review| %>
       <div class="card mb-3 offset-1" style="max-width: 60rem;">
