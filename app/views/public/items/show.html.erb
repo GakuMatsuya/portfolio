@@ -23,8 +23,10 @@
 
       <div class="row mt-3">
         <div class="col-2"><p>口コミ<%= @reviews.total_count %>件</p></div>
-        <div class="average<%= @item.id %>" data-score="<%= @average_review %>">
-          <%= render 'public/reviews/rate', item: @item %>
+        <div>
+          <div class="average<%= @item.id %>" data-score="<%= @average_review %>">
+            <%= render 'public/reviews/rate', item: @item %>
+          </div>
           <div style="color: gold; font-size: 20px; font-weight: bold;"><%= @average_review %>点</div>
         </div>
       </div>
@@ -54,8 +56,8 @@
           <%= review.text %>
           <%= render "layouts/tag_list", review: review %>
         </div>
-        
-        
+
+
         <div class="row offset-10">
           <div id="likes_buttons_<%= review.id %>"><%= render "public/likes/like", review: review %></div>
           <%= link_to "コメント", item_review_path(review.item_id, review), class: "mt-1 ml-4 far fa-comment" %>
